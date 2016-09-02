@@ -26,5 +26,5 @@ function funcNew(){
 	location.href="../member/register.jsp";
 }
 function funchome(){
-	location.href="guest_index.jsp";
+	location.href="../index.jsp";
 }

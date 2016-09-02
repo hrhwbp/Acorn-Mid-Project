@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>고객님 로그인</title>
 <script type="text/javascript"	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../js/js.js"></script>
 </head>
