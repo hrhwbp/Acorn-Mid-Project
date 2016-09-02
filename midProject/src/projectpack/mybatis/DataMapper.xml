@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro">
+ <select id="loginCustomer" parameterType="hashmap" resultType="projectpack.business.CustomerDto">
+ select * from customer where c_id=#{c_id} and c_pw=#{c_pw}
+ </select>
+ <select id="selectCustomerAll" resultType="projectpack.business.CustomerDto">
+  select * from customer order by c_no asc
+ </select>
+ 
+ <select id="selectCustomerById" parameterType="string" resultType="projectpack.business.CustomerDto">
+  select * from customer where c_id = #{c_id}
+ </select>
+ 
+ <insert id="insertCustomer" parameterType="projectpack.business.CustomerDto">
+  insert into customer(c_name, c_jumin, c_addr, c_tel, c_lic, c_email, c_id, c_pw, c_que) 
+  values(#{c_name},#{c_jumin},#{c_addr},#{c_tel}, #{c_lic}, #{c_email}, #{c_id}, #{c_pw}, #{c_que})
+ </insert>
+ 
+ <update id="updateCustomer" parameterType="projectpack.business.CustomerDto">
+  update customer set c_name=#{c_name}, c_jumin=#{c_jumin}, c_addr=#{c_addr}, c_tel=#{c_tel}, c_lic = #{c_lic} , c_email = #{c_email} , c_pw=#{c_pw}, c_que = #{c_que}
+  where c_id=#{c_id}
+ </update>
+ 
+ <delete id="deleteCustomer" parameterType="string">
+  delete from Customer where c_id=#{c_id}
+ </delete>
+ 
+  <select id="selectInsuranceAll" resultType="projectpack.business.InsuranceDto">
+  select * from insurance order by i_no asc
+ </select>
+ 
+ <select id="selectInsuranceById" parameterType="string" resultType="projectpack.business.InsuranceDto">
+  select * from insurance where i_no = #{i_no}
+ </select>
+ 
+ <insert id="insertInsurance" parameterType="projectpack.business.InsuranceDto">
+  insert into insurance(i_price, i_name) values(#{i_price},#{i_name})
+ </insert>
+ 
+ <update id="updateInsurance" parameterType="projectpack.business.InsuranceDto">
+  update insurance set i_name=#{i_name}, i_price=#{i_price} where i_no=#{i_no}
+ </update>
+ 
+ <delete id="deleteInsurance" parameterType="string">
+  delete from insurance where i_no=#{i_no}
+ </delete>
+
+ <select id="selectReservationAll" resultType="projectpack.business.ReservationDto">
+  select * from reservation order by r_no asc
+ </select>
+ 
+ <select id="selectReservationById" parameterType="string" resultType="projectpack.business.ReservationDto">
+  select * from reservation where r_no = #{r_no}
+ </select>
+ 
+ <insert id="insertReservation" parameterType="projectpack.business.ReservationDto">
+  insert into reservation(r_cno, r_out, r_in, r_vno, r_ins, r_total, r_menu) 
+  values(#{r_cno}, #{r_out}, #{r_in}, #{r_vno}, #{r_ins}, #{r_total}, #{r_menu})
+ </insert>
+ 
+ <update id="updateReservation" parameterType="projectpack.business.ReservationDto">
+  update reservation set r_cno  = #{r_cno}, r_out = #{r_out}, r_in = #{r_in}, r_vno = #{r_vno}, r_ins = #{r_ins} , r_total = #{r_total}, r_menu = #{r_menu}
+  where r_no=#{r_no}
+ </update>
+ 
+ <delete id="deleteReservation" parameterType="string">
+  delete from reservation where r_no=#{r_no}
+ </delete>
+ 
+ 
+ <select id="selectVehicleAll" resultType="projectpack.business.VehicleDto">
+  select * from vehicle order by v_no asc
+ </select>
+ 
+ <select id="selectVehicleById" parameterType="string" resultType="projectpack.business.VehicleDto">
+  select * from vehicle where v_no = #{v_no}
+ </select>
+ 
+ <insert id="insertVehicle" parameterType="projectpack.business.VehicleDto">
+  insert into vehicle(v_brand, v_name, v_price, v_type, v_count, v_avail, v_status) 
+  values(v_brand, v_name, v_price, v_type, v_count, v_avail, v_status)
+ </insert>
+ 
+ <update id="updateVehicle" parameterType="projectpack.business.VehicleDto">
+  update vehicle set v_brand  = #{v_brand}, v_name = #{v_name}, v_price = #{v_price}, v_type = #{v_type}, v_count = #{v_count} , v_avail = #{v_avail}, v_status = #{v_status}
+  where v_no=#{v_no}
+ </update>
+ 
+ <delete id="deleteVehicle" parameterType="string">
+  delete from vehicle where v_no=#{v_no}
+ </delete>
+ </mapper>
