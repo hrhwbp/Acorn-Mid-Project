@@ -1,6 +1,7 @@
 package projectpack.business;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,23 @@ public class ProcessDao {
 		return dao;
 	}
 	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
+	//캘린더인서트
+	public boolean insertCalendar(CalendarDto dto){
+		SqlSession sqlSession = factory.openSession();
+		boolean b = false;
+		try {
+			int re = sqlSession.insert("insertCalendar", dto);
+			if(re > 0) b = true;
+			sqlSession.commit();
+			
+		} catch (Exception e) {
+			sqlSession.rollback();
+		}finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+			return b;	
+	}
+	
 	//로그인
 	
 	public boolean login(HashMap<String, String> map){
@@ -33,7 +51,13 @@ public class ProcessDao {
 		}
 		return b;
 	}
-	
+	//우편번호  sql
+	public List zipcodeRead(String area3){
+		SqlSession sqlSession = factory.openSession();
+		List list = sqlSession.selectList("selectZiptab", area3 + "%");
+		sqlSession.close();
+				return list;
+	}
 	//손님 sql
 	public List selectcustomerAll() throws SQLException{
 		SqlSession sqlSession = factory.openSession();
@@ -41,6 +65,7 @@ public class ProcessDao {
 		sqlSession.close();
 		return list;
 	}
+	
 	
 	public CustomerDto selectcustomerPart(String arg) throws SQLException{
 		

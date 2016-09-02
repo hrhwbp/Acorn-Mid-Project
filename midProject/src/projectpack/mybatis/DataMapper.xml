@@ -3,6 +3,14 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pro">
+<insert id="insertCalendar" parameterType="projectpack.business.CalendarDto">
+ insert into customer(cal_no, cal_cno, cal_rno, cal_vno, cal_out, cal_in, cal_memo) 
+  values(#{cal_no},#{cal_cno},#{cal_rno},#{cal_vno}, #{cal_out}, #{cal_in}, #{cal_memo})
+
+</insert>
+<select id="selectZiptab" resultType="projectpack.business.ZiptabDto">
+select * from ziptab where area3 like #{area3}
+</select>
  <select id="loginCustomer" parameterType="hashmap" resultType="projectpack.business.CustomerDto">
  select * from customer where c_id=#{c_id} and c_pw=#{c_pw}
  </select>
