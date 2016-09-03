@@ -84,8 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
  <delete id="deleteReservation" parameterType="string">
   delete from reservation where r_no=#{r_no}
- </delete>
- 
+ </delete> 
  
  <select id="selectVehicleAll" resultType="projectpack.business.VehicleDto">
   select * from vehicle order by v_no asc

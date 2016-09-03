@@ -16,7 +16,7 @@ map.put("c_pw",passwd);
 boolean b = processDao.c_login(map);
 if(b){
 	session.setAttribute("c_id", id);
-	response.sendRedirect("c_center.jsp");
+	response.sendRedirect("../index.jsp");
 }else{
 	%><script>alert("로그인 실패하셨습니다.")</script><%
 }

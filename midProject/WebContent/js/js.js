@@ -29,11 +29,7 @@ function funcLogin(){
       alert("비번 입력");
       loginFrm.passwd.focus();
    }else{
-      if(loginFrm.id == "customer"){
-    	  loginFrm.action = "c_loginproc.jsp";
-      }else if(loginFrm.id == "admin"){
-    	  loginFrm.action = "a_loginproc.jsp"
-      }
+      loginFrm.action = "c_loginproc.jsp";      
       loginFrm.method="post";
       loginFrm.submit();
    }   
@@ -56,7 +52,7 @@ function funcNew(){
    location.href="c_join.jsp";
 }
 function funchome(){
-   location.href="c_center.jsp";
+   location.href="../index.jsp";
 }
 function zipCheck(){
    url = "c_zipcheck.jsp?check=y"

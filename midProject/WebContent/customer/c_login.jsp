@@ -14,7 +14,8 @@
 String id = (String)session.getAttribute("c_id");
 if(id != null){
 	%>
-	<b><%=id %>님 환영</b>
+	<b><%=id %>님 환영</b><br>
+	<a href="../index.jsp">홈페이지</a><br>
 	<a href="logout.jsp">로그아웃</a>
 	<%}else{%>
 	<form name="loginFrm" id = "customer">

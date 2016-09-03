@@ -81,7 +81,7 @@ public class ProcessDao {
 		return list;
 	}
 	
-	
+	//고객 일부정보
 	public CustomerDto selectcustomerPart(String arg) throws SQLException{
 		
 		SqlSession sqlSession = factory.openSession();
@@ -90,6 +90,8 @@ public class ProcessDao {
 		sqlSession.close();
 		return dto;
 	}
+	
+	//고객정보 삽입
 	public boolean insertCustomer(CustomerDto dto){
 		SqlSession sqlSession = factory.openSession();
 		boolean b = false;
@@ -105,6 +107,8 @@ public class ProcessDao {
 		}
 			return b;	
 	}
+	
+	//고객정보 수정
 	public boolean updateCustomer(CustomerDto dto){
 		SqlSession sqlSession = factory.openSession();
 		boolean b = false;
@@ -119,6 +123,8 @@ public class ProcessDao {
 		}
 			return b;
 	}
+	
+	//고객정보 삭제
 	public boolean deleteCustomer(int arg){
 		SqlSession sqlSession = factory.openSession();//자동
 		boolean b = false;
@@ -135,7 +141,7 @@ public class ProcessDao {
 		return b;
 	}
 	
-	//보험 sql
+	//모든 보험정보
 	public List selectInsuranceAll() throws SQLException{
 		SqlSession sqlSession = factory.openSession();
 		List list = sqlSession.selectList("selectInsuranceAll");	//DataMapper의 id를 읽기
@@ -193,8 +199,8 @@ public class ProcessDao {
 		
 		return b;
 	}
-	//예약
 	
+	//모든 예약
 	public List selectReservationAll() throws SQLException{
 		SqlSession sqlSession = factory.openSession();
 		List list = sqlSession.selectList("selectReservationAll");	//DataMapper의 id를 읽기
@@ -202,12 +208,15 @@ public class ProcessDao {
 		return list;
 	}
 	
+	//일부 예약
 	public ReservationDto selectReservationPart(String arg) throws SQLException{
 		SqlSession sqlSession = factory.openSession();
 		ReservationDto dto = sqlSession.selectOne("selectReservationById",arg);
 		sqlSession.close();
 		return dto;
 	}
+	
+	//예약 삽입
 	public boolean insertReservation(ReservationDto dto){
 		SqlSession sqlSession = factory.openSession();
 		boolean b = false;
@@ -223,6 +232,8 @@ public class ProcessDao {
 		}
 		return b;		
 	}
+	
+	//예약 수정
 	public boolean updateReservation(ReservationDto dto){
 		SqlSession sqlSession = factory.openSession();
 		boolean b = false;
@@ -237,6 +248,8 @@ public class ProcessDao {
 		}
 			return b;
 	}
+	
+	//예약 삭제
 	public boolean deleteReservation(int arg){
 		SqlSession sqlSession = factory.openSession();//자동
 		boolean b = false;
@@ -252,20 +265,24 @@ public class ProcessDao {
 		
 		return b;
 	}
-	//자동차
+	
+	//자동차 목록보기
 	public List selectVehicleAll() throws SQLException{
 		SqlSession sqlSession = factory.openSession();
-		List list = sqlSession.selectList("selectVehicleAll");	//DataMapper의 id를 읽기
+		List list = sqlSession.selectOne("selectVehicleAll");
 		sqlSession.close();
 		return list;
 	}
 	
+	//자동차 일부정보 보기
 	public VehicleDto selectVehiclePart(String arg) throws SQLException{
 		SqlSession sqlSession = factory.openSession();
 		VehicleDto dto = sqlSession.selectOne("selectVehicleById",arg);
 		sqlSession.close();
 		return dto;
 	}
+	
+	//자동차 새정보 삽입
 	public boolean insertVehicle(VehicleDto dto){
 		SqlSession sqlSession = factory.openSession();
 		boolean b = false;
@@ -281,6 +298,8 @@ public class ProcessDao {
 		}
 		return b;		
 	}
+	
+	//자동차 정보 업데이트 
 	public boolean updateVehicle(VehicleDto dto){
 		SqlSession sqlSession = factory.openSession();
 		boolean b = false;
@@ -295,6 +314,8 @@ public class ProcessDao {
 		}
 			return b;
 	}
+	
+	//자동차 정보 삭제
 	public boolean deleteVehicle(int arg){
 		SqlSession sqlSession = factory.openSession();//자동
 		boolean b = false;
