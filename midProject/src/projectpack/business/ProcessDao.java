@@ -36,13 +36,27 @@ public class ProcessDao {
 			return b;	
 	}
 	
-	//로그인
-	
-	public boolean login(HashMap<String, String> map){
+	//고객 로그인	
+	public boolean c_login(HashMap<String, String> map){
 		boolean b = false;
 		SqlSession sqlSession = factory.openSession();
 		try {
 			CustomerDto dto = sqlSession.selectOne("loginCustomer", map);
+			if(dto != null) b = true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		return b;
+	}
+	
+	//관리자 로그인	
+	public boolean a_login(HashMap<String, String> map){
+		boolean b = false;
+		SqlSession sqlSession = factory.openSession();
+		try {
+			AdminDto dto = sqlSession.selectOne("loginAdmin", map);
 			if(dto != null) b = true;
 		} catch (Exception e) {
 			System.out.println(e);

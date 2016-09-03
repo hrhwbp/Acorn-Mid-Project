@@ -17,23 +17,25 @@ if(id != null){
 	<b><%=id %>님 환영</b>
 	<a href="logout.jsp">로그아웃</a>
 	<%}else{%>
-	<form name="loginFrm">
+	<form name="loginFrm" method = "post">
 	<table>
-		<tr><td colspan="2">로그인</td></tr>
 		<tr>
-		<td>아이디:</td>
-		<td><input type="text" name="id"></td>
+			<td colspan="2">로그인</td>
 		</tr>
 		<tr>
-		<td>비밀번호:</td>
-		<td><input type="text" name="passwd"></td>
+			<td>아이디:</td>
+			<td><input type="text" name="id"></td>
 		</tr>
 		<tr>
-		<td colspan="2">
-		<input type="button" value="로그인" id = "btnLogin">
-		<input type="button" value="회원가입" id = "btnNewMember">
-		<input type="button" value="홈페이지" id = "btnHome">
-		</td>
+			<td>비밀번호:</td>
+			<td><input type="text" name="passwd"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<input type="button" value="로그인" id = "btnLogin">
+			<input type="button" value="회원가입" id = "btnNewMember">
+			<input type="button" value="홈페이지" id = "btnHome">
+			</td>
 		</tr>
 	</table>
 	</form>

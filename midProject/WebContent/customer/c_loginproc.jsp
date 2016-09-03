@@ -9,10 +9,11 @@
 String id = request.getParameter("id");
 String passwd = request.getParameter("passwd");
 request.setCharacterEncoding("utf-8");
+
 HashMap<String, String> map = new HashMap<String,String>();
 map.put("c_id",id);
 map.put("c_pw",passwd);
-boolean b = processDao.login(map);
+boolean b = processDao.c_login(map);
 if(b){
 	session.setAttribute("c_id", id);
 	response.sendRedirect("c_center.jsp");
