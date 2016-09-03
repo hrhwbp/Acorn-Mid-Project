@@ -53,6 +53,7 @@ public class ProcessDao {
 	
 	//관리자 로그인	
 	public boolean a_login(HashMap<String, String> map){
+		
 		boolean b = false;
 		SqlSession sqlSession = factory.openSession();
 		try {

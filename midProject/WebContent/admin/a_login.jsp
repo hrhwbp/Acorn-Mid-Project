@@ -10,14 +10,17 @@
 </head>
 <body>
 
+
 <%
-String id = (String)session.getAttribute("c_id");
+String id = (String)session.getAttribute("a_id");
 if(id != null){
 	%>
 	<b><%=id %>님 환영</b>
 	<a href="logout.jsp">로그아웃</a>
-	<%}else{%>
-	<form name="loginFrm" method = "post">
+<%
+}else{
+%>
+	<form name="loginFrm" id = "admin">
 	<table>
 		<tr>
 			<td colspan="2">로그인</td>
@@ -28,13 +31,12 @@ if(id != null){
 		</tr>
 		<tr>
 			<td>비밀번호:</td>
-			<td><input type="text" name="passwd"></td>
+			<td><input type="text" name="pw"></td>
 		</tr>
 		<tr>
 			<td colspan="2">
-			<input type="button" value="로그인" id = "btnLogin">
-			<input type="button" value="회원가입" id = "btnNewMember">
-			<input type="button" value="홈페이지" id = "btnHome">
+			<input type="button" value="로그인" id = "btnLogin" onclick="funcAlogin()">
+			<input type="button" value="홈페이지" id = "btnHome" onclick="funchome()">
 			</td>
 		</tr>
 	</table>

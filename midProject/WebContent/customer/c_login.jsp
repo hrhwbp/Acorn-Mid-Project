@@ -17,7 +17,7 @@ if(id != null){
 	<b><%=id %>님 환영</b>
 	<a href="logout.jsp">로그아웃</a>
 	<%}else{%>
-	<form name="loginFrm">
+	<form name="loginFrm" id = "customer">
 	<table>
 		<tr><td colspan="2">로그인</td></tr>
 		<tr>
@@ -30,9 +30,9 @@ if(id != null){
 		</tr>
 		<tr>
 		<td colspan="2">
-		<input type="button" value="로그인" id = "btnLogin">
-		<input type="button" value="회원가입" id = "btnNewMember">
-		<input type="button" value="홈페이지" id = "btnHome">
+		<input type="button" value="로그인" id = "btnLogin" onclick="funcLogin()">
+		<input type="button" value="회원가입" id = "btnNewMember" onclick="funcNew()">
+		<input type="button" value="홈페이지" id = "btnHome" onclick="funchome()">
 		</td>
 		</tr>
 	</table>

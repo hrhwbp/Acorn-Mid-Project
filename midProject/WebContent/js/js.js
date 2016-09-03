@@ -4,17 +4,24 @@ $(document).ready(function() {
    });
 })
 
-window.onload = function(){
-   document.getElementById("btnLogin").addEventListener("click", funcLogin, false);
-   document.getElementById("btnNewMember").addEventListener("click", funcNew, false);
-   document.getElementById("btnHome").addEventListener("click", funchome, false);
-   document.getElementById("btnZipFind").onclick = dongCheck;
-   document.getElementById("btnZipClose").onclick = function(){
+/*window.onload = function(){
+   
+	//로그인
+	document.getElementById("btnLogin").addEventListener("click", funcLogin, false);
+	//새 고객등록
+	document.getElementById("btnNewMember").addEventListener("click", funcNew, false);
+    //메인으로
+	document.getElementById("btnHome").addEventListener("click", funchome, false);
+    //우편번호 및 주소 검색
+	document.getElementById("btnZipFind").onclick = dongCheck;
+    //우편번호 검색창 닫기
+	document.getElementById("btnZipClose").onclick = function(){
       window.close();
    };
-   document.getElementById("btnZip").onclick = zipCheck;
-}
+  document.getElementById("btnZip").onclick = zipCheck;
+}*/
 function funcLogin(){
+	
    if(loginFrm.id.value === ""){
       alert("id 입력해주세요");
       loginFrmid.focus();
@@ -22,7 +29,25 @@ function funcLogin(){
       alert("비번 입력");
       loginFrm.passwd.focus();
    }else{
-      loginFrm.action = "c_loginproc.jsp";
+      if(loginFrm.id == "customer"){
+    	  loginFrm.action = "c_loginproc.jsp";
+      }else if(loginFrm.id == "admin"){
+    	  loginFrm.action = "a_loginproc.jsp"
+      }
+      loginFrm.method="post";
+      loginFrm.submit();
+   }   
+}
+function funcAlogin(){
+	
+   if(loginFrm.id.value === ""){
+      alert("id 입력해주세요");
+      loginFrmid.focus();
+   }else if(loginFrm.pw.value === ""){
+      alert("비번 입력");
+      loginFrm.pw.focus();
+   }else{
+      loginFrm.action = "a_loginproc.jsp";
       loginFrm.method="post";
       loginFrm.submit();
    }
