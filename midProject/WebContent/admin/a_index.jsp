@@ -8,5 +8,6 @@
 </head>
 <body>
 
+<%@ include file = "a_center.jsp" %>
 </body>
 </html>

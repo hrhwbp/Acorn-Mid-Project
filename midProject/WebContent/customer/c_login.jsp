@@ -19,7 +19,7 @@ if(id != null){
 	<%}else{%>
 	<form name="loginFrm" id = "customer">
 	<table>
-		<tr><td colspan="2">로그인</td></tr>
+		<tr><td colspan="2">고객님 로그인</td></tr>
 		<tr>
 		<td>아이디:</td>
 		<td><input type="text" name="id"></td>

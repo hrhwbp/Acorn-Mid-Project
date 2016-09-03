@@ -23,7 +23,7 @@ if(id != null){
 	<form name="loginFrm" id = "admin">
 	<table>
 		<tr>
-			<td colspan="2">로그인</td>
+			<td colspan="2">관리자 로그인</td>
 		</tr>
 		<tr>
 			<td>아이디:</td>
