@@ -18,9 +18,9 @@ map.put("a_id", id);
 boolean b = processDao.a_login(map);
 if (b) {
 	session.setAttribute("a_id", id);
-	response.sendRedirect("a_center.jsp");
+	response.sendRedirect("a_index.jsp");
 } else {
 %><script>alert("로그인 실패하셨습니다.")</script><%
-	response.sendRedirect("a_center.jsp");
+	response.sendRedirect("a_index.jsp");
 	}
 %>

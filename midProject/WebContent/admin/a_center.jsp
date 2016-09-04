@@ -9,17 +9,6 @@
 <title>관리자 화면</title>
 </head>
 <body>
-=========================================<br>
-<%
-if (session.getAttribute("a_id") == null) {
-	response.sendRedirect("a_login.jsp");
-
-}else{%>
-	<%=session.getAttribute("a_id")%>님 반갑습니다.
-	<a href="logout.jsp">로그아웃</a><br>
-	
-<% }%>
-
-=========================================
+CENTER PAGE
 </body>
 </html>

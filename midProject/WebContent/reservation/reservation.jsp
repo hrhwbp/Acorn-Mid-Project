@@ -39,7 +39,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleAll();
 	<%for(VehicleDto d:list){ %>
 				<option><%=d.getV_brand() %> <%=d.getV_name() %></option>
 	<%}
-} %>
+ %>
 			</select>
 		</td>
 	</tr>
@@ -83,9 +83,17 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleAll();
 			</select>
 		</td>
 	</tr>
+	<tr>
+		<td>대여일</td>
+		
+		<td>
+		<input id="startDay" type="text" class="input calendar" style="width:103px;" value="" readonly />
+			<select id="selbox_startTime"></select>
+		</td>
+	</tr>
 </table>
 </form>
-		
+<%} %>		
 	
 </body>
 </html>
