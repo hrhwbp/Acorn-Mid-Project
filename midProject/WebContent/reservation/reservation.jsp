@@ -28,23 +28,64 @@ if(session.getAttribute("c_id") == null){
 예약을 받겠습니다.
 
 <%
-ArrayList<VehicleDto> list = (ArrayList)processDao.selectcustomerAll();	
-	for(VehicleDto d:list){
+ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleAll();	
 %>
-<table>
+<form>
+<table border = "1">
 	<tr>
 		<td>차명</td>
 		<td>
 			<select>			
-				<option><%=d.getV_name() %></option>
+	<%for(VehicleDto d:list){ %>
+				<option><%=d.getV_brand() %> <%=d.getV_name() %></option>
+	<%}
+} %>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>대여일</td>
+		<td>
+			<select>
+				<c:forEach begin="2016" end ="2100" var ="YYYY">
+					<option>${YYYY}</option>
+				</c:forEach>
+			</select>
+			<select>
+				<c:forEach begin="1" end ="12" var ="MM">
+					<option>${MM}</option>
+				</c:forEach>
+			</select>
+			<select>
+				<c:forEach begin="1" end ="31" var ="DD">
+					<option>${DD}</option>
+				</c:forEach>
+			</select>
+		</td>
+	</tr>
+		<tr>
+		<td>반납일</td>
+		<td>
+			<select>
+				<c:forEach begin="2016" end ="2100" var ="YYYY">
+					<option>${YYYY}</option>
+				</c:forEach>
+			</select>
+			<select>
+				<c:forEach begin="1" end ="12" var ="MM">
+					<option>${MM}</option>
+				</c:forEach>
+			</select>
+			<select>
+				<c:forEach begin="1" end ="31" var ="DD">
+					<option>${DD}</option>
+				</c:forEach>
 			</select>
 		</td>
 	</tr>
 </table>
-
+</form>
 		
 	
-	<%}
-} %>
 </body>
 </html>

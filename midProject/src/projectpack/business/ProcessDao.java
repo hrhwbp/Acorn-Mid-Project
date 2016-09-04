@@ -269,7 +269,7 @@ public class ProcessDao {
 	//자동차 목록보기
 	public List selectVehicleAll() throws SQLException{
 		SqlSession sqlSession = factory.openSession();
-		List list = sqlSession.selectOne("selectVehicleAll");
+		List list = sqlSession.selectList("selectVehicleAll");
 		sqlSession.close();
 		return list;
 	}
