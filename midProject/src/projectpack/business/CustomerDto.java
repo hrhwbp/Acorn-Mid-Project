@@ -1,7 +1,7 @@
 package projectpack.business;
 
 public class CustomerDto {
-String c_no, c_name, c_jumin, c_addr, c_tel, c_lic, c_email, c_id, c_pw, c_que;
+String c_no, c_name, c_jumin_first, c_jumin_last, c_addr, c_zip, c_tel, c_lic, c_lic2, c_email, c_id, c_pw, c_que, c_ans;
 
 public String getC_no() {
 	return c_no;
@@ -19,12 +19,20 @@ public void setC_name(String c_name) {
 	this.c_name = c_name;
 }
 
-public String getC_jumin() {
-	return c_jumin;
+public String getC_jumin_first() {
+	return c_jumin_first;
 }
 
-public void setC_jumin(String c_jumin) {
-	this.c_jumin = c_jumin;
+public void setC_jumin_first(String c_jumin_first) {
+	this.c_jumin_first = c_jumin_first;
+}
+
+public String getC_jumin_last() {
+	return c_jumin_last;
+}
+
+public void setC_jumin_last(String c_jumin_last) {
+	this.c_jumin_last = c_jumin_last;
 }
 
 public String getC_addr() {
@@ -33,6 +41,14 @@ public String getC_addr() {
 
 public void setC_addr(String c_addr) {
 	this.c_addr = c_addr;
+}
+
+public String getC_zip() {
+	return c_zip;
+}
+
+public void setC_zip(String c_zip) {
+	this.c_zip = c_zip;
 }
 
 public String getC_tel() {
@@ -49,6 +65,14 @@ public String getC_lic() {
 
 public void setC_lic(String c_lic) {
 	this.c_lic = c_lic;
+}
+
+public String getC_lic2() {
+	return c_lic2;
+}
+
+public void setC_lic2(String c_lic2) {
+	this.c_lic2 = c_lic2;
 }
 
 public String getC_email() {
@@ -83,5 +107,12 @@ public void setC_que(String c_que) {
 	this.c_que = c_que;
 }
 
+public String getC_ans() {
+	return c_ans;
+}
+
+public void setC_ans(String c_ans) {
+	this.c_ans = c_ans;
+}
 
 }

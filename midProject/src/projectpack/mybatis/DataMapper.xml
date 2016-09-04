@@ -26,6 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   select * from customer order by c_no asc
  </select>
  
+ <select id="selectCustomerByNo" parameterType="string" resultType="projectpack.business.CustomerDto">
+  select * from customer where c_no = #{c_no}
+ </select>
+ 
  <select id="selectCustomerById" parameterType="string" resultType="projectpack.business.CustomerDto">
   select * from customer where c_id = #{c_id}
  </select>
@@ -65,7 +69,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </delete>
 
  <select id="selectReservationAll" resultType="projectpack.business.ReservationDto">
-  select * from reservation order by r_no asc
+  select r_no, r_vno, v_brand, v_name, r_out, r_in, c_no, c_name, r_memo, r_date from reservation left outer join customer on r_cno = c_no left outer join vehicle on r_vno = v_no order by r_no asc
  </select>
  
  <select id="selectReservationById" parameterType="string" resultType="projectpack.business.ReservationDto">

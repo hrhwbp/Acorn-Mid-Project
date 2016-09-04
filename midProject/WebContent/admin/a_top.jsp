@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
 <!--Import Google Icon Font-->
@@ -25,7 +24,7 @@ if (session.getAttribute("a_id") == null) {
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="sass.html"><%=session.getAttribute("a_id")%>님 반갑습니다.</a></li>
         <li><a href="a_manage.jsp">경영관리</a></li>
-        <li><a href="a_vMGT.jsp">차량관리</a></li>
+        <li><a href="a_vMgt.jsp">차량관리</a></li>
         <li><a href="a_reserve.jsp">예약관리</a></li>
         <li><a href="a_memberMgt.jsp">회원관리</a></li>
         <li><a href="a_boardList.jsp">게시판관리</a></li>

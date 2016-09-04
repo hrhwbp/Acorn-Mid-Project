@@ -146,10 +146,10 @@
 		<div class="video-container">
 			<div class="title-container">
 				<div class="headline">
-					<h1>왔으면 하나 빌려가라 만드느라 힘드니까</h1>
+					<h1>지친 당신이 누려야 할 가장 멋진 쉼</h1>
 				</div>
 				<div class="description">
-					<div class="inner">blah~hlah~blah~blah~hlah~ㅅㅂblah</div>
+					<div class="inner">쉼(,)카</div>
 				</div>
 			</div>
 

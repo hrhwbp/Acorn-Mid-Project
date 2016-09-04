@@ -81,8 +81,8 @@ public class ProcessDao {
 		return list;
 	}
 	
-	//고객 일부정보
-	public CustomerDto selectcustomerPart(String arg) throws SQLException{
+	//고객 일부정보 ID로 검색
+	public CustomerDto selectcustomerPartId(String arg) throws SQLException{
 		
 		SqlSession sqlSession = factory.openSession();
 		CustomerDto dto = sqlSession.selectOne("selectCustomerById",arg);
@@ -90,6 +90,16 @@ public class ProcessDao {
 		sqlSession.close();
 		return dto;
 	}
+	
+	//고객일부 정보 (고객번호)로 검색
+	public CustomerDto selectcustomerPartNo(String arg) throws SQLException{
+		
+		SqlSession sqlSession = factory.openSession();
+		CustomerDto dto = sqlSession.selectOne("selectCustomerByNo",arg);
+		
+		sqlSession.close();
+		return dto;
+	}	
 	
 	//고객정보 삽입
 	public boolean insertCustomer(CustomerDto dto){

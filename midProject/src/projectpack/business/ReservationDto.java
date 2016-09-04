@@ -1,10 +1,18 @@
 package projectpack.business;
 
 public class ReservationDto {
-String r_no, r_cno, r_out, r_in, r_vno, r_ins, r_total, r_memo;
+String r_no, r_cno, r_out, r_in, r_vno, r_ins, r_total, r_memo, r_date, v_brand, v_name, c_no, c_name;
 
 public String getR_no() {
 	return r_no;
+}
+
+public String getR_date() {
+	return r_date;
+}
+
+public void setR_date(String r_date) {
+	this.r_date = r_date;
 }
 
 public void setR_no(String r_no) {
@@ -65,6 +73,38 @@ public String getR_memo() {
 
 public void setR_memo(String r_memo) {
 	this.r_memo = r_memo;
+}
+
+public String getV_brand() {
+	return v_brand;
+}
+
+public void setV_brand(String v_brand) {
+	this.v_brand = v_brand;
+}
+
+public String getV_name() {
+	return v_name;
+}
+
+public void setV_name(String v_name) {
+	this.v_name = v_name;
+}
+
+public String getC_no() {
+	return c_no;
+}
+
+public void setC_no(String c_no) {
+	this.c_no = c_no;
+}
+
+public String getC_name() {
+	return c_name;
+}
+
+public void setC_name(String c_name) {
+	this.c_name = c_name;
 }
 
 

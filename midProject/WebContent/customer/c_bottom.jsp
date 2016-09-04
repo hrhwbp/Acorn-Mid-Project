@@ -15,7 +15,7 @@
 			<div class="col l4 offset-l2 s12">
 				<h5 class="white-text">Links</h5>
 				<ul>
-					<li><a class="grey-text text-lighten-3" href="#!">여따 뭐넣을까? 1</a></li>
+					<li><a class="grey-text text-lighten-3" href="../admin/a_index.jsp">관리자</a></li>
 					<li><a class="grey-text text-lighten-3" href="#!">여따 뭐넣을까? 2</a></li>
 					<li><a class="grey-text text-lighten-3" href="#!">여따 뭐넣을까? 3</a></li>
 					<li><a class="grey-text text-lighten-3" href="#!">여따 뭐넣을까? 4</a></li>
