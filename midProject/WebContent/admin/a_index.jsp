@@ -16,7 +16,7 @@
 <body>
 <%@ include file = "a_top.jsp" %>
 
-<%@ include file = "a_center.jsp" %>
+<%@ include file = "a_bottom.jsp" %>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="../js/materialize.min.js"></script>
 </body>

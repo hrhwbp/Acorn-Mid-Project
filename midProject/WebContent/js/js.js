@@ -2,7 +2,12 @@ $(document).ready(function() {
    $("#update").click(function(){
       location.href="c_myinfoedit.jsp"
    });
-})
+   
+   $(".modal-trigger").leanModal(C_id);
+   $(document).ready(function() {
+	    $('select').material_select();
+	  });
+});
 
 /*window.onload = function(){
    
@@ -57,8 +62,11 @@ function funchome(){
 function zipCheck(){
    url = "c_zipcheck.jsp?check=y"
    window.open(url,"zip","toolbar=no,width=450,height=300,top=200,left=300,status=yes,scrollbars=yes,menubar=no");
-   
-   
+}
+
+function a_memberEdit(C_no){   
+   //alert(C_no);
+	location.href="#modal_detail";
 }
 function dongCheck(){
    alert("1");

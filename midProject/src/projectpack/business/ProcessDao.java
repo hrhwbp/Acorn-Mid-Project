@@ -11,14 +11,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import projectpack.mybatis.SqlMapConfig;
 
-
-
 public class ProcessDao {
 	private static ProcessDao dao = new ProcessDao();
 	public static ProcessDao getInstance(){
 		return dao;
 	}
 	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
+	
+	
 	//캘린더인서트
 	public boolean insertCalendar(CalendarDto dto){
 		SqlSession sqlSession = factory.openSession();
@@ -73,7 +73,7 @@ public class ProcessDao {
 		sqlSession.close();
 				return list;
 	}
-	//손님 sql
+	//고객정보 읽어오기
 	public List selectcustomerAll() throws SQLException{
 		SqlSession sqlSession = factory.openSession();
 		List list = sqlSession.selectList("selectCustomerAll");	//DataMapper의 id를 읽기

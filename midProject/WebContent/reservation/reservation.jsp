@@ -14,6 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <title>예약 페이지</title>
+
 </head>
 <body>
 <%

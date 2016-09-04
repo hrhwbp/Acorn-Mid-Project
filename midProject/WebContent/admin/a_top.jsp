@@ -27,8 +27,8 @@ if (session.getAttribute("a_id") == null) {
         <li><a href="a_manage.jsp">경영관리</a></li>
         <li><a href="a_vMGT.jsp">차량관리</a></li>
         <li><a href="a_reserve.jsp">예약관리</a></li>
-        <li><a href="a_memberMGT">회원관리</a></li>
-        <li><a href="a_boardList">게시판관리</a></li>
+        <li><a href="a_memberMgt.jsp">회원관리</a></li>
+        <li><a href="a_boardList.jsp">게시판관리</a></li>
         <li><a href="a_myInfo.jsp">관리자 정보수정</a></li>
         <li><a href="logout.jsp">로그아웃</a></li>
       </ul>
