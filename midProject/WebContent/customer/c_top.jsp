@@ -82,29 +82,29 @@
          		</div>
         	</div>
         	<div class="row">
-         		<div class="input-field col s4 offset-s3 imsi30">
+         		<div class="input-field col s5 offset-s3 imsi30">
           			<input id="password" type="password" class="validate">
           			<label for="password">Password</label>
          		</div>
         	</div>
     		<div class="row">
-    	 		<div class="input-field col s4 offset-s3 imsi30" >
+    	 		<div class="input-field col s5 offset-s3 imsi30" >
          			<input placeholder="Password" id="check" type="password" class="validate">
           			<label for="check">Password Check</label>
          		</div>
     		</div>
     		<div class="row">
-    	 		<div class="input-field col s4 offset-s3 imsi30" >
+    	 		<div class="input-field col s5 offset-s3 imsi30" >
           			<input id="name" type="text" class="validate">
           			<label for="name">Name</label>
          		</div>
     		</div>
     		<div class="row">
-    	 <div class="input-field col s2 offset-s3 imsi30" >
+    	 <div class="input-field col s3 offset-s3 imsi30" >
           <input placeholder="ex) 960101" id="first" type="text" class="validate center-align">
           <label for="first">주민등록번호</label>
          </div>
-         <div class="input-field col s2 imsi30" >
+         <div class="input-field col s3 imsi30" >
           <input placeholder="1234567" id="last" type="text" class="validate center-align">
          </div>
     	</div>
@@ -113,18 +113,18 @@
           <input placeholder="지역 또는 번호" id="ric" type="text" class="validate center-align">
           <label for="ric">면허정보</label>
          </div>
-         <div class="input-field col s2 imsi30" >
+         <div class="input-field col s3 imsi30" >
           <input placeholder="ex) 23-123456-12" id="ric2" type="text" class="validate center-align">
          </div>
         </div>
         <div class="row">
-    	 <div class="input-field col s4 offset-s3 imsi30" >
+    	 <div class="input-field col s5 offset-s3 imsi30" >
           <input id="tel" type="text" class="validate">
           <label for="tel">Phone</label>
          </div>
     	</div>
     	<div class="row">
-    	 <div class="input-field col s4 offset-s3 imsi30" >
+    	 <div class="input-field col s5 offset-s3 imsi30" >
           <input id="email" type="text" class="validate">
           <label for="email">E-Mail</label>
          </div>
