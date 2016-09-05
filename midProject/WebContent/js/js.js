@@ -8,22 +8,22 @@ $(document).ready(function() {
 
 /*window.onload = function(){
    
-	//로그인
-	document.getElementById("btnLogin").addEventListener("click", funcLogin, false);
-	//새 고객등록
-	document.getElementById("btnNewMember").addEventListener("click", funcNew, false);
+   //로그인
+   document.getElementById("btnLogin").addEventListener("click", funcLogin, false);
+   //새 고객등록
+   document.getElementById("btnNewMember").addEventListener("click", funcNew, false);
     //메인으로
-	document.getElementById("btnHome").addEventListener("click", funchome, false);
+   document.getElementById("btnHome").addEventListener("click", funchome, false);
     //우편번호 및 주소 검색
-	document.getElementById("btnZipFind").onclick = dongCheck;
+   document.getElementById("btnZipFind").onclick = dongCheck;
     //우편번호 검색창 닫기
-	document.getElementById("btnZipClose").onclick = function(){
+   document.getElementById("btnZipClose").onclick = function(){
       window.close();
    };
   document.getElementById("btnZip").onclick = zipCheck;
 }*/
 function funcLogin(){
-	
+   
    if(loginFrm.id.value === ""){
       alert("id 입력해주세요");
       loginFrmid.focus();
@@ -37,7 +37,7 @@ function funcLogin(){
    }   
 }
 function funcAlogin(){
-	
+   
    if(loginFrm.id.value === ""){
       alert("id 입력해주세요");
       loginFrmid.focus();
@@ -61,11 +61,6 @@ function zipCheck(){
    window.open(url,"zip","toolbar=no,width=450,height=300,top=200,left=300,status=yes,scrollbars=yes,menubar=no");
 }
 
-function a_memberEdit_modal(C_no){   
-	//alert(C_no);
-	location.href="a_memberMgt.jsp?C_no=" + C_no + "#modal_detail";
-	//$(".modal-trigger").leanModal();
-}
 function dongCheck(){
    alert("1");
    if(zipForm.area3.value === ""){
