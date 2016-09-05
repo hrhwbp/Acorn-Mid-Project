@@ -20,12 +20,7 @@
                </div>
             </li>
             <li><a href="#!"><i class="material-icons">contact_phone</i>아이콘과 함께 클릭가능</a></li>
-            <%
-            if(session.getAttribute("c_id") == null){            	
-            %><li><a href="#">로그인</a></li> 
-            <% }else{%>
-            <li><a href="#">로그아웃</a></li>
-             <%} %>
+            <li><a href="#">로그인</a></li>
             <li><a data-target="modal_Csearch" class="waves-effect waves-light modal-trigger">차량안내</a></li>
             <li><a href="#">예약</a></li>
             <li><a class="subheader">bottom Header(아래에 더 입력가능)</a></li>
@@ -36,27 +31,19 @@
       
       <!--Top Menu....  -->
       <ul id="nav-mobile" class="right hide-on-med-and-down" >   
-         
-         <% if(session.getAttribute("c_id") == null){%>
          <li>
             <a href="#modal_login" class="waves-effect waves-light modal-trigger tooltipped" 
-            data-position="bottom" data-delay="50" data-tooltip="로그인 해주세요">로그인</a>
+            data-position="bottom" data-delay="50" data-tooltip="지금 바로해">로그인</a>
          </li>
-         <% }else{ %>
-         <li>
-        	 <a href="c_logout.jsp" class="waves-effect waves-light tooltipped" 
-            data-position="bottom" data-delay="50" data-tooltip="로그아웃">로그아웃</a>
-         </li>
-         <% } %>
          <li>
             <a href="" data-target="modal_Csearch" class="waves-effect waves-light modal-trigger tooltipped" 
-            data-position="bottom" data-delay="50" data-tooltip="당신을 위한 최고급 차량">차량안내 </a>
+            data-position="bottom" data-delay="50" data-tooltip="비싼것만 있다 기죽지 마라">차량안내 </a>
          </li>
          <li>
-            <a href="../reservation/design_reser.jsp" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="돈은 냈지?">예약하기</a>
+            <a href="../reservation/r_main.jsp" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="돈은 냈지?">예약하기</a>
          </li>
          <li>
-            <a href="../about/about.jsp">회사소개</a>
+            <a href="">회사소개</a>
          </li>
          <li>
             <a href="">고객센터</a>
@@ -70,7 +57,7 @@
 <div class="container">
   <div class="row s12">
   <div id="modal_login" class="modal col s6 offset-s1">
-  <form action="c_loginproc.jsp" method="post" id="c_login">
+  <form action="#">
     <div class="modal-content center-align">
       <h4>Login</h4>
       <input placeholder="I D" type="text" name="c_id" class="center-align">
@@ -78,7 +65,7 @@
       <p/>
     </div>
     <div class="modal-footer center-align">
-      <a href="#" class="modal-action" onclick="document.getElementById('c_login').submit()">로그인</a>
+      <a href="#!" class="modal-action">로그인</a>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a class="waves-effect waves-light modal-trigger" href="#modal_register">회원가입</a>
     </div>
@@ -216,6 +203,7 @@
         </div>
     </form>
   </div>
+
 
 
 
