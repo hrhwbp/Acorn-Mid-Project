@@ -20,7 +20,12 @@
                </div>
             </li>
             <li><a href="#!"><i class="material-icons">contact_phone</i>아이콘과 함께 클릭가능</a></li>
-            <li><a href="#">로그인</a></li>
+            <%
+            if(session.getAttribute("c_id") == null){            	
+            %><li><a href="#">로그인</a></li> 
+            <% }else{%>
+            <li><a href="#">로그아웃</a></li>
+             <%} %>
             <li><a data-target="modal_Csearch" class="waves-effect waves-light modal-trigger">차량안내</a></li>
             <li><a href="#">예약</a></li>
             <li><a class="subheader">bottom Header(아래에 더 입력가능)</a></li>
@@ -31,19 +36,27 @@
       
       <!--Top Menu....  -->
       <ul id="nav-mobile" class="right hide-on-med-and-down" >   
+         
+         <% if(session.getAttribute("c_id") == null){%>
          <li>
             <a href="#modal_login" class="waves-effect waves-light modal-trigger tooltipped" 
-            data-position="bottom" data-delay="50" data-tooltip="지금 바로해">로그인</a>
+            data-position="bottom" data-delay="50" data-tooltip="로그인 해주세요">로그인</a>
          </li>
+         <% }else{ %>
+         <li>
+        	 <a href="c_logout.jsp" class="waves-effect waves-light tooltipped" 
+            data-position="bottom" data-delay="50" data-tooltip="로그아웃">로그아웃</a>
+         </li>
+         <% } %>
          <li>
             <a href="" data-target="modal_Csearch" class="waves-effect waves-light modal-trigger tooltipped" 
-            data-position="bottom" data-delay="50" data-tooltip="비싼것만 있다 기죽지 마라">차량안내 </a>
+            data-position="bottom" data-delay="50" data-tooltip="당신을 위한 최고급 차량">차량안내 </a>
          </li>
          <li>
             <a href="../reservation/design_reser.jsp" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="돈은 냈지?">예약하기</a>
          </li>
          <li>
-            <a href="">회사소개</a>
+            <a href="../about/about.jsp">회사소개</a>
          </li>
          <li>
             <a href="">고객센터</a>
