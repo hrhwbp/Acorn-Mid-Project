@@ -56,8 +56,8 @@
 <!-- Modal 로그인용 -->
 <div class="container">
   <div class="row s12">
-  <div id="modal_login" class="modal col s6 offset-s1">
-  <form action="#">
+  <div id="modal_login" class="modal col s2 offset-s3">
+  <form action="c_loginproc.jsp" method="post" name="loginFrm">
     <div class="modal-content center-align">
       <h4>Login</h4>
       <input placeholder="I D" type="text" name="c_id" class="center-align">
@@ -65,7 +65,7 @@
       <p/>
     </div>
     <div class="modal-footer center-align">
-      <a href="#!" class="modal-action">로그인</a>
+      <a href="#" onclick = "loginFrm.submit()" class="modal-action">로그인</a>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a class="waves-effect waves-light modal-trigger" href="#modal_register">회원가입</a>
     </div>
