@@ -77,25 +77,25 @@ if(request.getParameter("C_no") != null){
         	<div class="row">
          		<div class="input-field col s5 offset-s3 imsi30">
           			<input id="c_pw" type="password"  name="c_pw" class="validate">
-          			<label for="password">Password</label>
+          			<label for="c_pw">Password</label>
          		</div>
         	</div>
     		<div class="row">
     	 		<div class="input-field col s5 offset-s3 imsi30" >
          			<input placeholder="Password" id="c_pw_check" type="password" class="validate">
-          			<label for="check">Password Check</label>
+          			<label for="c_pw_check">Password Check</label>
          		</div>
     		</div>
     		<div class="row">
     	 		<div class="input-field col s5 offset-s3 imsi30" >
           			<input id="c_name" name = "c_name" type="text" class="validate" value="<%=dto.getC_name()%>">
-          			<label for="name">Name</label>
+          			<label for="c_name">Name</label>
          		</div>
     		</div>
     		<div class="row">
     	 <div class="input-field col s3 offset-s3 imsi30" >
           <input placeholder="ex) 960101" id="c_jumin_first" name = "c_jumin_first" type="text" value="<%=dto.getC_jumin_first()%>" class="validate center-align">
-          <label for="first">주민등록번호</label>
+          <label for="c_jumin_first">주민등록번호</label>
          </div>
          <div class="input-field col s3 imsi30" >
           <input placeholder="1234567" id="c_jumin_last" name = "c_jumin_last" type="text"  value="<%=dto.getC_jumin_last()%>" class="validate center-align">
@@ -107,25 +107,25 @@ if(request.getParameter("C_no") != null){
           <label for="Lincense">면허정보</label>
          </div>
          <div class="input-field col s3 imsi30" >
-          <input placeholder="ex) 23-123456-12" id="c_lic2" name="c_lics" type="text"  value="<%=dto.getC_lic2()%>" class="validate center-align">
+          <input placeholder="ex) 23-123456-12" id="c_lic2" name="c_lic2" type="text"  value="<%=dto.getC_lic2()%>" class="validate center-align">
          </div>
         </div>
         <div class="row">
     	 <div class="input-field col s5 offset-s3 imsi30" >
           <input id="c_tel" type="text" name="c_tel" value="<%=dto.getC_tel()%>" class="validate">
-          <label for="Phone">Phone</label>
+          <label for="c_tel">Phone</label>
          </div>
     	</div>
     	<div class="row">
     	 <div class="input-field col s5 offset-s3 imsi30" >
-          <input id="email" name="c_email" type="text" value="<%=dto.getC_email()%>" class="validate">
-          <label for="email">E-Mail</label>
+          <input id="c_email" name="c_email" type="text" value="<%=dto.getC_email()%>" class="validate">
+          <label for="c_email">E-Mail</label>
          </div>
     	</div>
     	<div class="row">
     	 <div class="input-field col s3 offset-s3 imsi20">
           <input placeholder="우편 번호" id="c_zip" name="c_zip" type="text"  value="<%=dto.getC_zip()%>" class="validate">
-          <label for="addr">Address</label>
+          <label for="c_zip">Address</label>
          </div>
          <div class="col s3 offset-s1 imsi20">
          	<a class="waves-effect waves-light btn full" 
