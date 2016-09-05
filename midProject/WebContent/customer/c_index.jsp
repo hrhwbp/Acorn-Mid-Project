@@ -158,31 +158,10 @@
          </video>
       </div>
    </div>
-<div id="buttonbar" style="display: none;">
+<!-- <div id="buttonbar" style="display: none;">
    <button id="mute" title="Mute button" ><img alt="Volume on button" src = "../image/volume.jpg"/></button>
-</div>
-<div>
-   <!-- Modal 차량조회용 -->
-   
-      <!--<div id="modal_Csearch" class="modal">
-         <div class="modal-content">
-            <div class="carousel">
-               <a class="carousel-item" href="#1"><img src="../logoImage/Aston Martin.jpg"></a> 
-               <a class="carousel-item" href="#2"><img src="../logoImage/Bentley.jpg"></a>
-               <a class="carousel-item" href="#3"><img src="../logoImage/BMW.jpg"></a> 
-               <a class="carousel-item" href="#4"><img src="../logoImage/Bugatti.jpg"></a> 
-               <a class="carousel-item" href="#5"><img src="../logoImage/Cadillac.jpg"></a> 
-               <a class="carousel-item" href="#6"><img src="../logoImage/Lamborghini.png"></a>
-               <a class="carousel-item" href="#7"><img src="../logoImage/Maserati.jpg"></a> 
-               <a class="carousel-item" href="#8"><img src="../logoImage/Porsche.jpg"></a> 
-               <a class="carousel-item" href="#9"><img src="../logoImage/Tesla.jpg"></a>
-            </div>
-         </div>
-         <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Disagree</a>
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-         </div>
-      </div>-->
+</div> -->
+
    
    <%@ include file="c_bottom.jsp"%>
 </body>

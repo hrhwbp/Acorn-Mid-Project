@@ -53,34 +53,38 @@ if(list == null){
    <tr>
    <td>
       <div id="modal_detail<%=d.getC_no()%>" class="row modal">
-       <form class="col s12 l12">
+       <form class="col s12 l12" name = "">
           <div class="row">
-               <div class="input-field col s4 offset-s3">
-                   <input id="c_id" type="text" name="c_id" class="validate" value="<%=d.getC_id()%>">
+               <div class="input-field col s3 offset-s3">
+                   <input disabled id="c_id" type="text" name="c_id" class="validate" value="<%=d.getC_id()%>">
                    <label for="id">ID</label>
                </div>
-               <div class="col s2">
-                  <a class="waves-effect waves-light btn" style="margin-top: 15px; font-size: 10px">Check</a>
+               <div class="input-field col s3 imsi30" >
+                   <input id="c_name" name = "c_name" type="text" class="validate" value="<%=d.getC_name()%>">
+                   <label for="name">Name</label>
                </div>
+               <!-- <div class="col s2">
+                  <a class="waves-effect waves-light btn" style="margin-top: 15px; font-size: 10px">Check</a>
+               </div> -->
            </div>
            <div class="row">
-               <div class="input-field col s5 offset-s3 imsi30">
+         <!--       <div class="input-field col s5 offset-s3 imsi30">
                    <input id="c_pw" type="password"  name="c_pw" class="validate">
                    <label for="password">Password</label>
                </div>
-           </div>
-          <div class="row">
+           </div> -->
+         <!--  <div class="row">
               <div class="input-field col s5 offset-s3 imsi30" >
                   <input placeholder="Password" id="c_pw_check" type="password" class="validate">
                    <label for="check">Password Check</label>
                </div>
-          </div>
-          <div class="row">
+          </div> -->
+         <%--  <div class="row">
               <div class="input-field col s5 offset-s3 imsi30" >
                    <input id="c_name" name = "c_name" type="text" class="validate" value="<%=d.getC_name()%>">
                    <label for="name">Name</label>
                </div>
-          </div>
+          </div> --%>
           <div class="row">
         <div class="input-field col s3 offset-s3 imsi30" >
           <input placeholder="ex) 960101" id="c_jumin_first" name = "c_jumin_first" type="text" value="<%=d.getC_jumin_first()%>" class="validate center-align">
@@ -91,7 +95,7 @@ if(list == null){
          </div>
        </div>
        <div class="row">
-        <div class="input-field col s2 offset-s3 imsi30" >
+        <div class="input-field col s3 offset-s3 imsi30" >
           <input placeholder="면허종류" id="c_lic" name="c_lic" type="text"  value="<%=d.getC_lic()%>" class="validate center-align" >
           <label for="Lincense">면허정보</label>
          </div>
@@ -100,69 +104,65 @@ if(list == null){
          </div>
         </div>
         <div class="row">
-        <div class="input-field col s5 offset-s3 imsi30" >
+        <div class="input-field col s3 offset-s3 imsi30" >
           <input id="c_tel" type="text" name="c_tel" value="<%=d.getC_tel()%>" class="validate">
           <label for="Phone">Phone</label>
          </div>
-       </div>
-       <div class="row">
-        <div class="input-field col s5 offset-s3 imsi30" >
+        <div class="input-field col s3 imsi30" >
           <input id="email" name="c_email" type="text" value="<%=d.getC_email()%>" class="validate">
           <label for="email">E-Mail</label>
          </div>
-       </div>
+       </div>      
        <div class="row">
-        <div class="input-field col s3 offset-s3 imsi20">
+        <div class="input-field col s2 offset-s3 imsi20">
           <input placeholder="우편 번호" id="c_zip" name="c_zip" type="text"  value="<%=d.getC_zip()%>" class="validate">
           <label for="addr">Address</label>
          </div>
-         <div class="col s3 offset-s1 imsi20">
-            <a class="waves-effect waves-light btn full" 
-            style="margin-top: 15px; font-size: 10px">
-            search
-            </a>
-         </div>
+         
+         
        </div>
        <div class="row">
         <div class="input-field col s6 offset-s3 imsi20">
           <input placeholder="주소" id="c_addr" name="c_addr" type="text"  value="<%=d.getC_addr()%>" class="validate">
+         <label>고객님 주소</label>
          </div>
         </div>
         <div class="row">
         <label class="col s6 offset-s3" style="margin-top: 30px; font-size: 15px">
-          어떻게 오셧나요?
+          쉼카를 어떻게 알게 되셨나요?
         </label>  
        </div>
         <div class="row">
           <div class="col s2 offset-s3">
             <input name="group1" type="radio" id="test1" class="with-gap"/>
-            <label for="test1">Red</label>
+            <label for="test1">친구의 권유</label>
          </div>
          <div class="col s2">
             <input name="group1" type="radio" id="test2" class="with-gap"/>
-          <label for="test2">Yellow</label>
+          <label for="test2">가족의 권유</label>
          </div>
          <div class="col s2">
           <input class="with-gap" name="group1" type="radio" id="test3"/>
-          <label for="test3">Green</label>
+          <label for="test3">동료의 권유</label>
          </div>
         </div>
        <div class="row">
        <div class="input-field col s6 offset-s3 imsi20">
        <input placeholder="비밀번호 찾기 질문" id="c_ans"  type="text"  value="<%=d.getC_que()%>" class="validate">
-        <label>비밀번호찾기에 대한 답변입니다</label>
+        <label>비밀번호찾기에 대한 질문입니다</label>
       </div>
        </div>
       <div class="row">
         <div class="input-field col s6 offset-s3 imsi20">
           <input placeholder="비밀번호 찾기 답변" id="c_ans"  type="text"  value="<%=d.getC_ans()%>" class="validate">
+          <label>비밀번호찾기에 대한 답변입니다</label>
          </div>
         </div>
         <div class="row">
         <div class="col s3 offset-s3 right-align">
-            <a id="btnSubmit" class="waves-effect waves-light btn" 
+            <a id="btnUpdate" class="waves-effect waves-light btn" 
             style="margin-top: 15px; font-size: 10px">
-            가입완료
+            정보수정
             </a>
          </div>
          <div class="col s3 left-align" >

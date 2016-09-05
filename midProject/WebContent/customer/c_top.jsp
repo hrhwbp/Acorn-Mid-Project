@@ -77,7 +77,7 @@
 
 <!--회원가입 모달-->
    <div id="modal_register" class="row modal">
-       <form class="col s12 l12" action="#">
+       <form class="col s12 l12" action="#" name = "registerFrm">
           <div class="row">
                <div class="input-field col s4 offset-s3">
                    <input id="c_id" type="text" class="validate" name="c_id">
