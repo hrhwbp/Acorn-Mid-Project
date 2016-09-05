@@ -1,8 +1,8 @@
 <%@page import="projectpack.business.CustomerDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <jsp:useBean id="processDao" class="projectpack.business.ProcessDao"/>
-    <!DOCTYPE html>
+<jsp:useBean id="processDao" class="projectpack.business.ProcessDao"/>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,24 +10,25 @@
 <script type="text/javascript"	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src = "../js/js.js"></script>
 <%
- String id = (String)session.getAttribute("c_id");
-if(id == null){
+ String c_id = (String)session.getAttribute("c_id");
+if(c_id == null){
 	  %>
 	  <script>alert("로그인해주세요");
 	  location.href("c_login.jsp");
 	  </script>
 	  <%
   }
-CustomerDto dto = processDao.selectcustomerPart(id);
+CustomerDto dto = processDao.selectcustomerPartId(c_id);
 %>        
 
 </head>
 <body>
 내 정보
 <table>
-<tr><td>아이디 :</td><td><%=dto.getC_id() %></td></tr>
+<tr><td>아이디 :</td><td><%=dto.getC_id()%></td></tr>
 <tr><td>이름 : </td><td><%=dto.getC_name() %></td></tr>
-<tr><td>주민번호 : </td><td><%=dto.getC_jumin() %></td></tr>
+<tr><td>주민번호 : </td><td><%=dto.getC_jumin_first() %>-<%=dto.getC_jumin_last() %></td></tr>
+<tr><td>우편번호 : </td><td><%=dto.getC_zip() %>
 <tr><td>주소 : </td><td><%=dto.getC_addr() %></td></tr>
 <tr><td>전화번호 : </td><td><%=dto.getC_tel() %></td></tr>
 <tr><td>면허정보 : </td><td><%=dto.getC_lic() %></td></tr>
