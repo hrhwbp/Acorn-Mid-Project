@@ -1,4 +1,3 @@
-
 <%@page import="projectpack.business.VehicleDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,7 +11,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>예약하기</title>
-
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,41 +27,31 @@ $('.datepicker').pickadate({
   });
   
 function selectcar(){
-	/* $.ajax({
-        type:"POST",
-        url:"carselectproc.jsp",
-        data:({
-           v_brand : $("#v_brand").val()
-        }),
-        success:function (data){
-		        
-        }
-     }); */
-	frmcarsearch.submit();
+	/* alert(document.getElementById("v_brand").value); */
 
 }  
 </script>
 </head>
 <body>
 <%@include file="../customer/c_top.jsp" %>
-
 <%
-ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
+String v_brand = (String)session.getAttribute("v_brand");
 
+ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
+;
 %>
 <div class="container">
-  <form action="carselectproc.jsp" name="frmcarsearch" method="post">
+  <form action="#" name="frmcarsearch">
      <div class="row">
      <h4 class="col offset-s1">예약 차량 조회</h4>
      <p/>
      <br>
      </div>
-    
    <div class="row s12">
       <div class="col s3 offset-s1">
        <div class="input-field">
           <select name="v_brand"  onchange = "selectcar()" id="v_brand">
-            <option value="" disabled selected>차량 브랜드를 선택해주세요</option>
+            <option value="" disabled selected><%=session.getAttribute("v_brand") %></option>
             <%for(VehicleDto d:list){ %>
             <option value="<%=d.getV_brand() %>"><%=d.getV_brand() %><%--  <%=d.getV_name() %> --%></option>
            <%}
@@ -75,11 +63,16 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       <div class="col s7 ">
        <div class="input-field">
           <select name="v_no">
-		<option value="" disabled selected>차량을 선택해주세요</option><%-- <%
-			ArrayList<VehicleDto> listName = (ArrayList)processDao.selectVehiclebyBrand();
+		<option value="" disabled selected>차량을 선택해주세요</option>
+				<%
+				ArrayList<VehicleDto> listName =(ArrayList)processDao.selectVehiclebyBrand(v_brand);
+				if(listName == null){
+				}else{
              for(VehicleDto d2:listName){ %>
             <option value="<%=d2.getV_no() %>"><%=d2.getV_name() %></option>
-           <%}%> --%>
+           <%}
+				}
+           %>
      </select>
           <label>차량 선택</label>
         </div>

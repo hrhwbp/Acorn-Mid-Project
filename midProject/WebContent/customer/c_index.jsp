@@ -82,7 +82,78 @@
       
         $('select').material_select();
         $('select').material_select('destroy');
+        //========================id 중복 체크 ==============================
         
+        
+
+        var frm = $("form[name='registerFrm']");
+        var userid = frm.find("input[name='c_id']");
+        var passwd = frm.find("input[name='c_pw']");
+        var pwcheck = frm.find("input[name='c_pw_check']");
+       
+        var checkOk = false;
+
+       $("#id_check").click(function(){   
+       if(userid.val() == ""){
+          $('#idisNull').openModal();
+          return;
+       }else{
+          $.ajax({
+             type:"POST",
+             url:"c_idcheck.jsp",
+             data:({
+                userID : userid.val()
+             }),
+             success:function (data){
+             
+                if(jQuery.trim(data) == 'YES'){
+                   //alert("사용가능");
+                   $('#idCheckOk').openModal();
+                   checkOk = true;
+                }else{
+                   $('#idCheckNo').openModal();
+                   userid.focus();
+                   checkOk = false;
+                }
+             }
+          });
+       }
+        });
+       
+       $("#btnOk").click(function(){
+          if(checkOk != true){
+             $('#noCheck').openModal();
+          }else if(passwd.val() == ""){
+             $('#passwdisNull').openModal();
+             $('#c_pw').focus();
+          }else if(pwcheck.val() == ""){
+             $('#passwdisNull').openModal();
+          }else if(passwd.val() != pwcheck.val()){
+             $('#pwcheck').openModal();
+          }else if($('#c_name').val()==""){
+             $('#notNull').openModal();
+          }else if($('#c_jumin_first').val()==""){
+             $('#notNull').openModal();
+          }else if($('#c_jumin_last').val()==""){
+             $('#notNull').openModal();
+          }else if($('#c_lic').val()==""){
+             $('#notNull').openModal();
+          }else if($('#c_lic2').val()==""){
+             $('#notNull').openModal();
+          }else if($('#c_tel').val()==""){
+             $('#notNull').openModal();
+          }else if($('#c_zip').val()==""){
+             $('#notNull').openModal();
+          }else if($('#c_addr').val()==""){
+             $('#notNull').openModal();
+          }else if($('#c_ans').val()==""){
+             $('#notNull').openModal();
+          }else{
+             $('#modal_register').closeModal();
+             frm.submit();
+          }
+          
+       });
 
       
    });
@@ -164,6 +235,7 @@
 
    
    <%@ include file="c_bottom.jsp"%>
+    <%@ include file="c_modal.jsp"%>
 </body>
 </html>
 

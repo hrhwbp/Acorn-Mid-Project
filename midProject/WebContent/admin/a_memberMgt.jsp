@@ -53,7 +53,7 @@ if(list == null){
    <tr>
    <td>
       <div id="modal_detail<%=d.getC_no()%>" class="row modal">
-       <form class="col s12 l12" name = "">
+       <form class="col s12 l12" action="a_memberEdit" name="memberEditFrm" method="post">
           <div class="row">
                <div class="input-field col s3 offset-s3">
                    <input disabled id="c_id" type="text" name="c_id" class="validate" value="<%=d.getC_id()%>">
