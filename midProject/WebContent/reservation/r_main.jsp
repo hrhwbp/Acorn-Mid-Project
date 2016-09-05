@@ -1,11 +1,11 @@
-<%@page import="projectpack.business.ProcessDao"%>
+
 <%@page import="projectpack.business.VehicleDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%request.setCharacterEncoding("utf-8"); %>
     <%@ taglib prefix ="c" uri ="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="processDao" class="projectpack.business.ProcessDao" />
+
 <jsp:useBean id="vehicleDto" class = "projectpack.business.VehicleDto"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -26,13 +26,19 @@ $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+  
+function selectcar(){
+	/* alert(document.getElementById("v_brand").value); */
+	
+}  
 </script>
 </head>
 <body>
 <%@include file="../customer/c_top.jsp" %>
 
 <%
-ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleAll();   
+ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
+
 %>
 <div class="container">
   <form action="#">
@@ -42,18 +48,33 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleAll();
      <br>
      </div>
    <div class="row s12">
-      <div class="col s10 offset-s1">
+      <div class="col s3 offset-s1">
+       <div class="input-field">
+       	 
+          <select name="v_brand"  onchange = "selectcar()" id="v_brand">
+            <option value="" disabled selected>차량 브랜드를 선택해주세요</option>
+            <%for(VehicleDto d:list){ %>
+            <option value="<%=d.getV_brand() %>"><%=d.getV_brand() %><%--  <%=d.getV_name() %> --%></option>
+           <%}
+           
+           %>
+           </select>
+          <label>차량 선택</label>
+        </div>
+      </div>
+      <div class="col s7 ">
        <div class="input-field">
           <select name="v_no">
-            <option value="" disabled selected>차량을 선택해 주세요</option>
-            <%for(VehicleDto d:list){ %>
-            <option value="<%=d.getV_no()%>"><%=d.getV_brand() %> <%=d.getV_name() %></option>
+<%--             <option value="" disabled selected>차량을 선택해주세요</option><%
+             for(VehicleDto d2:list2){ %>
+            <option value="<%=d2.getV_no() %>"><%=d2.getV_name() %></option>
            <%}%>
-          </select>
+ --%>           </select>
           <label>차량 선택</label>
         </div>
       </div>
    </div>
+   
    <div class="row">
       <div class="col s2 offset-s1">
          <label for="out">대여일시</label>
