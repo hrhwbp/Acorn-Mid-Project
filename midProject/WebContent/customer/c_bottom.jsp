@@ -27,4 +27,8 @@
             href="#!">More Links</a>
       </div>
    </div>
+<<<<<<< HEAD
 </footer>
+=======
+</footer>
+>>>>>>> branch 'master' of https://github.com/hrhwbp/Acorn-Mid-Project.git
