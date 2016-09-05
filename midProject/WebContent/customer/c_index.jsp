@@ -138,8 +138,6 @@
 </script>
 </head>
 <body>
-
-
 	<%@ include file="c_top.jsp"%>
 
 	<div class="homepage-hero-module">
@@ -161,10 +159,10 @@
 		</div>
 	</div>
 <div id="buttonbar" style="display: none;">
-	<button id="mute" title="Mute button" ><img alt="Volume on button"/></button>
+	<button id="mute" title="Mute button" ><img alt="Volume on button" src = "../image/volume.jpg"/></button>
 </div>
 
-	<!-- Modal 차량조외용 -->
+	<!-- Modal 차량조회용 -->
 	
 		<!--<div id="modal_Csearch" class="modal">
 			<div class="modal-content">
@@ -186,16 +184,6 @@
 			</div>
 		</div>-->
 	
-	
-
-	
-
-	
-	
-
-
-
-
 	<%@ include file="c_bottom.jsp"%>
 </body>
 </html>
