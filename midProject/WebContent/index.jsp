@@ -9,8 +9,8 @@
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body>
-
+<body style="background-color: black; ">
+<%@ include file="top_index.jsp" %>
 <div class="homepage-hero-module">
 		<div class="video-container">
 			<div class="title-container">
@@ -29,7 +29,7 @@
 			</video>
 		</div>
 	</div>
-
+<%@ include file="bottom_index.jsp" %>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
