@@ -26,7 +26,7 @@
 	$(document).ready(function() {
 		$('select').material_select();
 		//$('.slider').slider({full_width:false});
-		$('.slider').slider({Height: 600});
+		//$('.slider').slider({Height: 600});
 		//$('.slider').slider({Indicators: false});
 	});
 	$('.datepicker').pickadate({
