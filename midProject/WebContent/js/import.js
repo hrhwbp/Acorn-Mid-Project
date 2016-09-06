@@ -1,14 +1,19 @@
-$(document).ready(function() {
+/**
+ * 
+ */$(document).ready(function() {
    $("#update").click(function(){
       location.href="c_myinfoedit.jsp"
    });
-   $(".modal-trigger").leanModal();
-   $('select').material_select();
+   
+   $(".modal-trigger").leanModal(C_id);
+   $(document).ready(function() {
+	    $('select').material_select();
+	  });
 });
 
 
 function funcLogin(){
-   
+	
    if(loginFrm.id.value === ""){
       alert("id 입력해주세요");
       loginFrmid.focus();
@@ -22,7 +27,7 @@ function funcLogin(){
    }   
 }
 function funcAlogin(){
-   
+	
    if(loginFrm.id.value === ""){
       alert("id 입력해주세요");
       loginFrmid.focus();
@@ -47,10 +52,9 @@ function zipCheck(){
 }
 
 function a_memberEdit(C_no){   
-	   //alert(C_no);
-		location.href="#modal_detail";
-	}
-
+   //alert(C_no);
+	location.href="#modal_detail";
+}
 function dongCheck(){
    alert("1");
    if(zipForm.area3.value === ""){
