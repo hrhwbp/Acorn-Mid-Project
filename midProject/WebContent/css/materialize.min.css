@@ -54,6 +54,7 @@ main {
   width: 100%;
   overflow: hidden;
   background: #000;
+  max-height: 500px;
 }
 .video-container .poster img {
   width: 100%;
@@ -114,6 +115,6 @@ main {
 }
 
 html {
-	font-family: GillSans, Calibri, Trebuchet, sans-serif;
+	font-family: GillSans, Calibri, Trebuchet, sans-serif, TrajanPro-Regular, TrajanPro-Bold;
 }
  

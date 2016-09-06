@@ -21,38 +21,46 @@
    });
 </script>
 <style type="text/css">
-   html,body { height: 100%; margin: 0; padding: 0; }
+   html,body { 
+   height: 100%; 
+   margin: 0; 
+   padding: 0;
+   background-color: black; 
+   }
  
 #container {
-min-height: 100%; 
-
-position: relative;
-padding-bottom: 50px;
+	min-height: 100%; 
+	position: relative;
+	padding-bottom: 50px;
 }
  
 #container #header {
-height: 70px;
-background-color: white;
+	height: 70px;
+	background-color: white;
 }
  
 #container #content {
-
-
+	
+	
 }
  
 #container #footer {
-height: 50px;
-position: absolute;
-bottom: 0;
-width: 100%;
+	height: 50px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 
-background-color: silver;
+	background-color: silver;
+}
+
+.collapsible-body {
+	background-color: white;
 }
 </style>
 </head>
 <body>
    <div id="container">
-   <jsp:include page="../customer/c_top.jsp" />
+   <jsp:include page="../top_index.jsp" />
    <table width="100%" ><tr><td>
       
    <div class="row">
@@ -126,7 +134,7 @@ background-color: silver;
    d
    </pre>
    <div id="footer">
-   <jsp:include page="../customer/c_bottom.jsp" />
+   <jsp:include page="../bottom_index.jsp" />
    </div>
    </div>
    <script type="text/javascript"

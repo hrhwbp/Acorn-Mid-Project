@@ -4,7 +4,8 @@
     pageEncoding="UTF-8"%>
     <%request.setCharacterEncoding("utf-8"); %>
     <%@ taglib prefix ="c" uri ="http://java.sun.com/jsp/jstl/core" %>
-
+ 
+<jsp:useBean id="processDao" class = "projectpack.business.ProcessDao"/>
 <jsp:useBean id="vehicleDto" class = "projectpack.business.VehicleDto"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,6 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../js/materialize.min.js"></script>
+<script type="text/javascript" src="../js/js.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -27,8 +29,8 @@ $('.datepicker').pickadate({
   });
   
 function selectcar(){
-	/* alert(document.getElementById("v_brand").value); */
-	location.href="r_main.jsp";	
+   /* alert(document.getElementById("v_brand").value); */
+   location.href="r_main.jsp";   
 }  
 </script>
 </head>
@@ -61,15 +63,15 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       <div class="col s7 ">
        <div class="input-field">
           <select name="v_no">
-		<option value="" disabled selected>차량을 선택해주세요</option>
-				<%
-				ArrayList<VehicleDto> listName =(ArrayList)processDao.selectVehiclebyBrand(v_brand);
-				if(listName == null){
-				}else{
+      <option value="" disabled selected>차량을 선택해주세요</option>
+            <%
+            ArrayList<VehicleDto> listName =(ArrayList)processDao.selectVehiclebyBrand(v_brand);
+            if(listName == null){
+            }else{
              for(VehicleDto d2:listName){ %>
             <option value="<%=d2.getV_no() %>"><%=d2.getV_name() %></option>
            <%}
-				}
+            }
            %>
      </select>
           <label>차량 선택</label>
@@ -80,11 +82,11 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
    <div class="row">
       <div class="col s2 offset-s1">
          <label for="out">대여일시</label>
-         <input id="out" type="date" class="datepicker">
+         <input id="out" type="date" class="datepicker" onchange = "rentday()">
       </div>
       <div class="col s1">
-      <div class="input-field center-align">
-          <select>
+      <div class="input-field center-align" id="hour">
+          <select id="hour" onchange="renttime()">
              <option value="" disabled selected>시</option>
             <c:forEach begin="1" end ="24" var ="HH">
                <option>${HH}</option>
@@ -95,7 +97,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
       <div class="col s1">
       <div class="input-field center-align">
-           <select>
+           <select id="min" onchange="rentmin()">
             <option value="" disabled selected>분</option>
             <c:forEach begin="00" end ="50" var ="MM" step="10">
                <option>${MM}</option>
@@ -104,12 +106,12 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
           <label>분</label>
       </div>
       </div>
-      <div class="col s2 offset-s2">
+      <div class="col s2 offset-s2" >
          <label for="in">반납일시</label>
-         <input id="in" type="date" class="datepicker">
+         <input id="in" type="date" class="datepicker" onchange="backday()">
       </div>
       <div class="col s1">
-      <div class="input-field center-align">
+      <div class="input-field center-align" id="backhour">
           <select>
             <option value="" disabled selected>시</option>
             <c:forEach begin="1" end ="24" var ="HH">
@@ -120,7 +122,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
       </div>
       <div class="col s1">
-      <div class="input-field center-align">
+      <div class="input-field center-align" id="backmin">
            <select>
             <option value="" disabled selected>분</option>
              <c:forEach begin="00" end ="50" var ="MM" step="10">
@@ -174,3 +176,4 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
 <%@include file="../customer/c_bottom.jsp" %>
 </body>
 </html>
+   <%session.removeAttribute("v_brand"); %>

@@ -74,6 +74,43 @@ function rentday(){
    if(rentDate.getDate() < today.getDate()){
       document.getElementById("out").value ="";
       alert("오늘 이전 날짜는 선택하실 수 없습니다.");
-      
    };
 }
+function renttime(){
+   var rentDate = new Date((document.getElementById("out").value));
+      var today = new Date();
+      
+     if(rentDate.getDate() == today.getDate()){ 
+      if($("input[value='시']").val() < today.getHours()){
+        alert("지금 이전 시간은 선택할 수 없습니다. 시간을 다시 선택해주세요");
+          $("input[value='시']").val("시");
+          
+      };   
+     }
+     
+}
+function rentmin(){
+   var rentDate = new Date((document.getElementById("out").value));
+      var today = new Date();
+      
+     if(rentDate.getDate() == today.getDate()){ 
+        if($("input[value='시']").val() == today.getHours()){
+           if($("input[value='분']").val() <= today.getHours()){
+         alert("지금 이전 시간은 선택할 수 없습니다. 분을 다시 선택해주세요");
+         $("input[value='분']").val("분");
+      };   
+     };
+     }else{
+       /* $("#backhour < div < input").val($("input[value='시']").val())*/
+        
+     }
+}
+function backday(){
+      var rentDate = new Date((document.getElementById("out").value));
+      var backDate = new Date((document.getElementById("in").value));
+      
+      if(rentDate.getDate() >= backDate.getDate()){
+         document.getElementById("in").value ="";
+         alert("렌트일 이전 날짜는 선택하실 수 없습니다.");
+      };
+   }

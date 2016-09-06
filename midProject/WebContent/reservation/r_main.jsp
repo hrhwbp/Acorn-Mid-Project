@@ -5,6 +5,7 @@
     pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8"); %>
 <%@ taglib prefix ="c" uri ="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="processDao" class = "projectpack.business.ProcessDao"/>
 <jsp:useBean id="vehicleDto" class = "projectpack.business.VehicleDto"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,19 +29,24 @@ $('.datepicker').pickadate({
   });
   
 function selectcar(){
-	/* $.ajax({
+   /* $.ajax({
         type:"POST",
         url:"carselectproc.jsp",
         data:({
            v_brand : $("#v_brand").val()
         }),
         success:function (data){
-		        
+              
         }
      }); */
-	frmcarsearch.submit();
+   frmcarsearch.submit();
 
 }  
+function renew(){
+   alert("차종을 먼저 선택해주세요");
+   $("#out").val("");
+   
+}
 </script>
 </head>
 <body>
@@ -74,8 +80,8 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       <div class="col s7 ">
        <div class="input-field">
           <select name="v_no">
-		<option value="" disabled selected>차량을 선택해주세요</option><%-- <%
-			ArrayList<VehicleDto> listName = (ArrayList)processDao.selectVehiclebyBrand();
+      <option value="" disabled selected>차량을 선택해주세요</option><%-- <%
+         ArrayList<VehicleDto> listName = (ArrayList)processDao.selectVehiclebyBrand();
              for(VehicleDto d2:listName){ %>
             <option value="<%=d2.getV_no() %>"><%=d2.getV_name() %></option>
            <%}%> --%>
@@ -88,11 +94,11 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
    <div class="row">
       <div class="col s2 offset-s1">
          <label for="out">대여일시</label>
-         <input id="out" type="date" class="datepicker">
+         <input id="out" type="date" class="datepicker" onchange ="renew()">
       </div>
       <div class="col s1">
       <div class="input-field center-align">
-          <select>
+          <select onchange="renew()">
              <option value="" disabled selected>시</option>
             <c:forEach begin="1" end ="24" var ="HH">
                <option>${HH}</option>
@@ -103,7 +109,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
       <div class="col s1">
       <div class="input-field center-align">
-           <select>
+           <select onchange="renew()">
             <option value="" disabled selected>분</option>
             <c:forEach begin="00" end ="50" var ="MM" step="10">
                <option>${MM}</option>
@@ -114,11 +120,11 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
       <div class="col s2 offset-s2">
          <label for="in">반납일시</label>
-         <input id="in" type="date" class="datepicker">
+         <input id="in" type="date" class="datepicker" onchange="renew()">
       </div>
       <div class="col s1">
       <div class="input-field center-align">
-          <select>
+          <select onchange="renew()">
             <option value="" disabled selected>시</option>
             <c:forEach begin="1" end ="24" var ="HH">
                <option>${HH}</option>
@@ -129,7 +135,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
       <div class="col s1">
       <div class="input-field center-align">
-           <select>
+           <select onchange="renew()">
             <option value="" disabled selected>분</option>
              <c:forEach begin="00" end ="50" var ="MM" step="10">
                <option>${MM}</option>
@@ -142,7 +148,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
    <div class="row">
          <div class="col s10 offset-s1">
              <div class="input-field">
-                <select name="">
+                <select name="" onchange="renew()">
                   <option value="" disabled selected>필수옵션</option>
                   <option>보험1</option>
                   <option>보험2</option>
@@ -156,7 +162,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
    <div class="row">
       <div class="col s10 offset-s1">
           <div class="input-field">
-             <select name="">
+             <select name="" onchange="renew()">
                <option value="" disabled selected>선택옵션</option>
                <option>없음</option>
                <option>네비게이션</option>
