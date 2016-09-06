@@ -28,7 +28,7 @@ $('.datepicker').pickadate({
   
 function selectcar(){
 	/* alert(document.getElementById("v_brand").value); */
-
+	location.href="r_main.jsp";	
 }  
 </script>
 </head>
@@ -52,10 +52,8 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
        <div class="input-field">
           <select name="v_brand"  onchange = "selectcar()" id="v_brand">
             <option value="" disabled selected><%=session.getAttribute("v_brand") %></option>
-            <%for(VehicleDto d:list){ %>
-            <option value="<%=d.getV_brand() %>"><%=d.getV_brand() %><%--  <%=d.getV_name() %> --%></option>
-           <%}
-             %>
+            <option value="">브랜드 재선택</option>
+           
            </select>
            <label>차량 선택</label>
         </div>
