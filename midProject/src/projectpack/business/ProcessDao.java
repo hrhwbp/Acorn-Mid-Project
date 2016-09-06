@@ -73,22 +73,6 @@ public class ProcessDao {
       sqlSession.close();
             return list;
    }
-   
-    //고객가입 id 중복 체크
-      public boolean id_check(String arg){
-          SqlSession sqlSession = factory.openSession();
-          boolean b = false;
-          try {
-             int re = sqlSession.selectOne("selectCustomerIdCheck", arg);
-             if(re == 0) b = true; 
-         } catch (Exception e) {
-            b = true;
-         }finally {
-            if(sqlSession != null) sqlSession.close();   
-         }
-          return b;
-      }
-   
    //고객정보 읽어오기
    public List selectcustomerAll() throws SQLException{
       SqlSession sqlSession = factory.openSession();
@@ -292,7 +276,7 @@ public class ProcessDao {
       return b;
    }
    
-      //자동차 목록보기
+   //자동차 목록보기
    public List selectVehicleAll() throws SQLException{
       SqlSession sqlSession = factory.openSession();
       List list = sqlSession.selectList("selectVehicleAll");
@@ -373,5 +357,4 @@ public class ProcessDao {
       
       return b;
    }
-
 }

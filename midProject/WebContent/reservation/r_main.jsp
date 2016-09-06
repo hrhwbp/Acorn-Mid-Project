@@ -92,14 +92,14 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
           <select name="v_no">
 
 		<option value="" disabled selected>차량을 선택해주세요</option><%
-			ArrayList<VehicleDto> listName = (ArrayList)processDao.selectVehiclebyBrand();
+			ArrayList<VehicleDto> listName = (ArrayList)processDao.selectVehicleBrand();
              for(VehicleDto d2:listName){ %>
             <option value="<%=d2.getV_no() %>"><%=d2.getV_name() %></option>
            <%}%>
      </select>
-
+			<%ArrayList<VehicleDto> listName2 = (ArrayList)processDao.selectVehiclePart(d2.getV_no); %>
              <option value="" disabled selected>차량을 선택해주세요</option><%
-             for(VehicleDto d2:list2){ %>
+             for(VehicleDto d2:list){ %>
             <option value="<%=d2.getV_no() %>"><%=d2.getV_name() %></option>
            <%}%>
            </select>
