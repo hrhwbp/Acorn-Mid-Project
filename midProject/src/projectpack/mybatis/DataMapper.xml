@@ -123,4 +123,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <select id="selectCustomerIdCheck" parameterType="string" resultType="int">
   select * from customer where c_id = #{c_id}
  </select>
+ 
+ <select id="selectVisitCount" resultType="int">
+  select count(*) from visit where substr(v_date, 1, 10) = curdate()
+ </select>
+ 
+ <insert id="insertVisitCount">
+  insert into visit values(now())
+ </insert>
  </mapper>

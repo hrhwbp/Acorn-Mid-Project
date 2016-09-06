@@ -5,4 +5,7 @@
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>/customer/c_index.jsp</welcome-file>        
   </welcome-file-list>
+    <listener>
+     <listener-class>projectpack.mybatis.SessionListener</listener-class>
+  </listener>
 </web-app>

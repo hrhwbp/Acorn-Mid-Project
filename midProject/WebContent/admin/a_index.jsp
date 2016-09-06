@@ -169,7 +169,7 @@ chart1.render();
 	<div class="row stats-row">
 		<div class="col-md-4 col-sm-4 stat">
 			<div class="data">
-				<span class="number">3240</span>users
+				<span class="number">${sessionScope.count}</span>users
 			</div>
 			<span class="date">오늘날짜</span>
 		</div>

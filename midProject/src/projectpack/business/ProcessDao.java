@@ -357,4 +357,29 @@ public class ProcessDao {
       
       return b;
    }
+   
+ //인원수 카운트
+   public int visitCount(){
+      int c = 0;
+      SqlSession sqlSession = factory.openSession();
+      try {
+         c = sqlSession.selectOne("selectVisitCount");
+         System.out.println(c);
+      } catch (Exception e) {
+         System.out.println("visitCount err :" + e);
+      }
+      return c;
+   }
+   
+   //인원수 늘리기
+   public void setVisitCount(){
+      SqlSession sqlSession = factory.openSession();
+      try {
+         sqlSession.insert("insertVisitCount");
+         sqlSession.commit();
+      } catch (Exception e) {
+         System.out.println("setVisitCount err :" + e);
+         sqlSession.rollback();
+      }
+   }
 }

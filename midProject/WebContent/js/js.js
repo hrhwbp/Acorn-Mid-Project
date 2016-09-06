@@ -47,9 +47,9 @@ function zipCheck(){
 }
 
 function a_memberEdit(C_no){   
-	   //alert(C_no);
-		location.href="#modal_detail";
-	}
+      //alert(C_no);
+      location.href="#modal_detail";
+   }
 
 function dongCheck(){
    alert("1");
@@ -66,4 +66,14 @@ opener.document.regForm.c_zip.value = zipcode;
 var addr = area1 + " " + area2 + " "  + area3 + " " + area4;
 opener.document.regForm.c_addr.value = addr;
 window.close();
+}
+function rentday(){
+   var rentDate = new Date((document.getElementById("out").value));
+   var today = new Date();
+   
+   if(rentDate.getDate() < today.getDate()){
+      document.getElementById("out").value ="";
+      alert("오늘 이전 날짜는 선택하실 수 없습니다.");
+      
+   };
 }

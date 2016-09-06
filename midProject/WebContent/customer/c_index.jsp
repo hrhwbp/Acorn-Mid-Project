@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,220 +24,182 @@
 
 
 <script type="text/javascript">
-   $(document).ready(function() {
-      $('.parallax').parallax();
+	$(document).ready(function() {
+		$('.parallax').parallax();
 
-      //사이드 메뉴
-      $('.button-collapse').sideNav('show');
-      $('.button-collapse').sideNav('hide');
-      $('.button-collapse').sideNav({
-         menuWidth : 300, // Default is 240
-         edge : 'left', // Choose the horizontal origin
-         closeOnClick : true
-      });
+		//사이드 메뉴
+		$('.button-collapse').sideNav('show');
+		$('.button-collapse').sideNav('hide');
+		$('.button-collapse').sideNav({
+			menuWidth : 300, // Default is 240
+			edge : 'left', // Choose the horizontal origin
+			closeOnClick : true
+		});
 
-      //top menu 툴팁
-      $('.tooltipped').tooltip({
-         delay : 50
-      });
+		//top menu 툴팁
+		$('.tooltipped').tooltip({
+			delay : 50
+		});
 
-      //css 충돌방지
-      /* var bootstrapButton = $.fn.button.noConflict()
-      $.fn.bootstrapBtn = bootstrapButton */
+		//css 충돌방지
+		/* var bootstrapButton = $.fn.button.noConflict()
+		$.fn.bootstrapBtn = bootstrapButton */
 
-      //비디오 실행
-      $("#video-1").on("ended", function() {
-         var $video2 = $("#video-2");
-         $(window).scrollTop($video2.offset().top);
-         $video2[0].play();
-      });
+		//비디오 실행
+		$("#video-1").on("ended", function() {
+			var $video2 = $("#video-2");
+			$(window).scrollTop($video2.offset().top);
+			$video2[0].play();
+		});
 
-      //----------------비디오 사이즈 조정------------------------------------
-      scaleVideoContainer();
+		//----------------비디오 사이즈 조정------------------------------------
+		scaleVideoContainer();
 
-      initBannerVideoSize('.video-container .poster img');
-      initBannerVideoSize('.video-container .filter');
-      initBannerVideoSize('.video-container video');
+		initBannerVideoSize('.video-container .poster img');
+		initBannerVideoSize('.video-container .filter');
+		initBannerVideoSize('.video-container video');
 
-      $(window).on('resize', function() {
-         scaleVideoContainer();
-         scaleBannerVideoSize('.video-container .poster img');
-         scaleBannerVideoSize('.video-container .filter');
-         scaleBannerVideoSize('.video-container video');
-      });
+		$(window).on('resize', function() {
+			scaleVideoContainer();
+			scaleBannerVideoSize('.video-container .poster img');
+			scaleBannerVideoSize('.video-container .filter');
+			scaleBannerVideoSize('.video-container video');
+		});
 
-      //Modal&carousel 차량 조회용 
-      $('.modal-trigger').leanModal();
-      $('.carousel').carousel();
-      
-      // Next slide
-      $('.carousel').carousel('next');
-      $('.carousel').carousel('next', 3); // Move next n times.
-      // Previous slide
-      $('.carousel').carousel('prev');
-      $('.carousel').carousel('prev', 4); // Move prev n times.
-      // Set to nth slide
-      $('.carousel').carousel('set', 4);
+		//Modal&carousel 차량 조회용 
+		$('.modal-trigger').leanModal();
+		$('.carousel').carousel();
+		
+		// Next slide
+		$('.carousel').carousel('next');
+		$('.carousel').carousel('next', 3); // Move next n times.
+		// Previous slide
+		$('.carousel').carousel('prev');
+		$('.carousel').carousel('prev', 4); // Move prev n times.
+		// Set to nth slide
+		$('.carousel').carousel('set', 4);
 
-      
-        $('select').material_select();
-        $('select').material_select('destroy');
-        //========================id 중복 체크 ==============================
-        
-        
+		
+    	 $('select').material_select();
+	     $('select').material_select('destroy');
+	     
 
-        var frm = $("form[name='registerFrm']");
-        var userid = frm.find("input[name='c_id']");
-        var passwd = frm.find("input[name='c_pw']");
-        var pwcheck = frm.find("input[name='c_pw_check']");
-       
-        var checkOk = false;
+		
+	});
 
-       $("#id_check").click(function(){   
-       if(userid.val() == ""){
-          $('#idisNull').openModal();
-          return;
-       }else{
-          $.ajax({
-             type:"POST",
-             url:"c_idcheck.jsp",
-             data:({
-                userID : userid.val()
-             }),
-             success:function (data){
-             
-                if(jQuery.trim(data) == 'YES'){
-                   //alert("사용가능");
-                   $('#idCheckOk').openModal();
-                   checkOk = true;
-                }else{
-                   $('#idCheckNo').openModal();
-                   userid.focus();
-                   checkOk = false;
-                }
-             }
-          });
-       }
-        });
-       
-       $("#btnOk").click(function(){
-          if(checkOk != true){
-             $('#noCheck').openModal();
-          }else if(passwd.val() == ""){
-             $('#passwdisNull').openModal();
-             $('#c_pw').focus();
-          }else if(pwcheck.val() == ""){
-             $('#passwdisNull').openModal();
-          }else if(passwd.val() != pwcheck.val()){
-             $('#pwcheck').openModal();
-          }else if($('#c_name').val()==""){
-             $('#notNull').openModal();
-          }else if($('#c_jumin_first').val()==""){
-             $('#notNull').openModal();
-          }else if($('#c_jumin_last').val()==""){
-             $('#notNull').openModal();
-          }else if($('#c_lic').val()==""){
-             $('#notNull').openModal();
-          }else if($('#c_lic2').val()==""){
-             $('#notNull').openModal();
-          }else if($('#c_tel').val()==""){
-             $('#notNull').openModal();
-          }else if($('#c_zip').val()==""){
-             $('#notNull').openModal();
-          }else if($('#c_addr').val()==""){
-             $('#notNull').openModal();
-          }else if($('#c_ans').val()==""){
-             $('#notNull').openModal();
-          }else{
-             $('#modal_register').closeModal();
-             frm.submit();
-          }
-          
-       });
+	//----------------비디오 사이즈 조정------------------------------------
+	function scaleVideoContainer() {
+		var height = $(window).height();
+		var unitHeight = parseInt(height) + 'px';
+		$('.homepage-hero-module').css('height', unitHeight);
+	}
 
-      
-   });
+	function initBannerVideoSize(element) {
+		$(element).each(function() {
+			$(this).data('height', $(this).height());
+			$(this).data('width', $(this).width());
+		});
+		scaleBannerVideoSize(element);
+	}
 
-   //----------------비디오 사이즈 조정------------------------------------
-   function scaleVideoContainer() {
-      var height = $(window).height();
-      var unitHeight = parseInt(height) + 'px';
-      $('.homepage-hero-module').css('height', unitHeight);
-   }
-
-   function initBannerVideoSize(element) {
-      $(element).each(function() {
-         $(this).data('height', $(this).height());
-         $(this).data('width', $(this).width());
-      });
-      scaleBannerVideoSize(element);
-   }
-
-   function scaleBannerVideoSize(element) {
-      var windowWidth = $(window).width(), windowHeight = $(window).height(), videoWidth, videoHeight;
-      console.log(windowHeight);
-      $(element).each(function(){
-         var videoAspectRatio = $(this).data('height') / $(this).data('width'), 
-         windowAspectRatio = windowHeight / windowWidth;
-         
-         if (videoAspectRatio > windowAspectRatio) {
-            videoWidth = windowWidth;
-            videoHeight = videoWidth * videoAspectRatio;
-            $(this).css({'top' : -(videoHeight - windowHeight) / 2 + 'px','margin-left' : 0});
-         } else {
-            videoHeight = windowHeight;
-            videoWidth = videoHeight / videoAspectRatio;
-            $(this).css({'margin-top' : 0,'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
-         }
-      
-         $(this).width(videoWidth).height(videoHeight);
-         $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
-      });
-   }
-   
-   // volume buttons
+	function scaleBannerVideoSize(element) {
+		var windowWidth = $(window).width(), windowHeight = $(window).height(), videoWidth, videoHeight;
+		console.log(windowHeight);
+		$(element).each(function(){
+			var videoAspectRatio = $(this).data('height') / $(this).data('width'), 
+			windowAspectRatio = windowHeight / windowWidth;
+			
+			if (videoAspectRatio > windowAspectRatio) {
+				videoWidth = windowWidth;
+				videoHeight = videoWidth * videoAspectRatio;
+				$(this).css({'top' : -(videoHeight - windowHeight) / 2 + 'px','margin-left' : 0});
+			} else {
+				videoHeight = windowHeight;
+				videoWidth = videoHeight / videoAspectRatio;
+				$(this).css({'margin-top' : 0,'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+			}
+		
+			$(this).width(videoWidth).height(videoHeight);
+			$('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+		});
+	}
+	
+	// volume buttons
    /*document.getElementById("mute").addEventListener("click", function (evt) {
-      if (video.muted) {
-         video.muted = false;
-         evt.target.innerHTML = "<img alt='volume on button' src='volume.jpg' />"
-      } else {
-         video.muted = true;
-         evt.target.innerHTML = "<img alt='volume off button' src='mute.png' />"
-      }
-   }, false);*/
-   
+		if (video.muted) {
+			video.muted = false;
+			evt.target.innerHTML = "<img alt='volume on button' src='volume.jpg' />"
+		} else {
+			video.muted = true;
+			evt.target.innerHTML = "<img alt='volume off button' src='mute.png' />"
+		}
+	}, false);*/
+	
 </script>
 </head>
 <body>
-   <%@ include file="c_top.jsp"%>
 
-   <div class="homepage-hero-module">
-      <div class="video-container">
-         <div class="title-container">
-            <div class="headline">
-               <h1>지친 당신이 누려야 할 가장 멋진 쉼</h1>
-            </div>
-            <div class="description">
-               <div class="inner">쉼(,)카</div>
-            </div>
-         </div>
 
-         <!--동영상 입력  -->
-         <div class="filter"></div>
-         <video autoplay loop class="fillWidth">
-            <source src="../video/S_class_2015.mp4" type="video/mp4" />
-         </video>
-      </div>
-   </div>
-<!-- <div id="buttonbar" style="display: none;">
-   <button id="mute" title="Mute button" ><img alt="Volume on button" src = "../image/volume.jpg"/></button>
-</div> -->
+	<%@ include file="c_top.jsp"%>
 
-   
-   <%@ include file="c_bottom.jsp"%>
-    <%@ include file="c_modal.jsp"%>
+	<div class="homepage-hero-module">
+		<div class="video-container">
+			<div class="title-container">
+				<div class="headline">
+					<h1>왔으면 하나 빌려가라 만드느라 힘드니까</h1>
+				</div>
+				<div class="description">
+					<div class="inner">blah~hlah~blah~blah~hlah~ㅅㅂblah</div>
+				</div>
+			</div>
+
+			<!--동영상 입력  -->
+			<div class="filter"></div>
+			<video autoplay loop class="fillWidth">
+				<source src="../video/S_class_2015.mp4" type="video/mp4" />
+			</video>
+		</div>
+	</div>
+<div id="buttonbar" style="display: none;">
+	<button id="mute" title="Mute button" ><img alt="Volume on button"/></button>
+</div>
+
+	<!-- Modal 차량조외용 -->
+	
+		<!--<div id="modal_Csearch" class="modal">
+			<div class="modal-content">
+				<div class="carousel">
+					<a class="carousel-item" href="#1"><img src="../logoImage/Aston Martin.jpg"></a> 
+					<a class="carousel-item" href="#2"><img src="../logoImage/Bentley.jpg"></a>
+					<a class="carousel-item" href="#3"><img src="../logoImage/BMW.jpg"></a> 
+					<a class="carousel-item" href="#4"><img src="../logoImage/Bugatti.jpg"></a> 
+					<a class="carousel-item" href="#5"><img src="../logoImage/Cadillac.jpg"></a> 
+					<a class="carousel-item" href="#6"><img src="../logoImage/Lamborghini.png"></a>
+					<a class="carousel-item" href="#7"><img src="../logoImage/Maserati.jpg"></a> 
+					<a class="carousel-item" href="#8"><img src="../logoImage/Porsche.jpg"></a> 
+					<a class="carousel-item" href="#9"><img src="../logoImage/Tesla.jpg"></a>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Disagree</a>
+				<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			</div>
+		</div>-->
+	
+	
+
+	
+
+	
+	
+
+
+
+
+	<%@ include file="c_bottom.jsp"%>
 </body>
 </html>
+
 
 
 

@@ -66,6 +66,14 @@ main {
   background: rgba(0, 0, 0, 0.4);
   width: 100%;
 }
+
+.video-container .filter1 {
+  z-index: 100;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4; opacity:0.8;);
+  width: 100%;
+}
+
 .video-container .title-container {
   z-index: 1000;
   position: absolute;
