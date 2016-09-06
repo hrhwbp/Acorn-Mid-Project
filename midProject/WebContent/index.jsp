@@ -15,7 +15,7 @@
 		<div class="video-container">
 			<div class="title-container">
 				<div class="headline">
-					<h1>아이콘 들어갈 자리</h1>
+					<div class="iconplace"><img src="image/steering.png" class = "icon"></div>
 				</div>
 				<div class="description">
 					<!-- <div class="inner">blah~hlah~blah~blah~hlah~ㅅㅂblah</div> -->

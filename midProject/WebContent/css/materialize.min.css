@@ -67,11 +67,16 @@ main {
   width: 100%;
 }
 
-.video-container .filter1 {
+.video-container .iconplace {
   z-index: 100;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.4; opacity:0.8;);
-  width: 100%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  left : 15%;
+  width: 70%;
+}
+
+.video-container .icon {
+  width: 200px;
 }
 
 .video-container .title-container {
@@ -80,7 +85,7 @@ main {
   top: 35%;
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: #ffffff;
 }
 .video-container .description .inner {
   font-size: 1em;

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<jsp:useBean id="processDao" class="projectpack.business.ProcessDao"/>
 
 <!DOCTYPE HTML>
 <html>
@@ -163,13 +163,15 @@ chart1.render();
 </head>
 <body>
 <%@ include file = "a_top.jsp" %>
-
+<%
+int i = processDao.visitCount();
+%>
 <!-- 메인 현황(처음) -->
 <div id="main-stats">
 	<div class="row stats-row">
 		<div class="col-md-4 col-sm-4 stat">
 			<div class="data">
-				<span class="number">${sessionScope.count}</span>users
+				<span class="number"><%=i %></span>users
 			</div>
 			<span class="date">오늘날짜</span>
 		</div>
