@@ -5,18 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+
+function redirect(arg){
+	//alert(arg.id);
+	if(arg.id == "home"){
+	location.href = "../index/index.jsp";
+	}
+}
+</script>
 </head>
 <body>
 
-    <div class="col s12 m4 s2">
+    
       <ul class="tabs black text-white" style="font-size: 20px;">
-        <li class="tab col s3"><a href="#test4">ABOUT SHIUM</a></li>
-        <li class="tab col s3"><a href="#test2">VEHICLES</a></li>
-        <li class="tab col s3"><a href="#test3">RESERVATION</a></li>
-        <li class="tab col s3"><a href="#test4">MEMBERSHIP</a></li>
-        <li class="tab col s3"><a class="active" target="_self" href="../board/freq.jsp">CUSTOMER SERVICES</a></li>
+      	<li class="tab col s1"><a class="active" href="#" id="home" onclick="redirect(this);">HOME</a></li>
+        <li class="tab col s2"><a class="active" href="#" id="about" onclick="redirect();">ABOUT</a></li>
+        <li class="tab col s2"><a class="active" href="#" id="vehicles" onclick="redirect();">VEHICLES</a></li>
+        <li class="tab col s2"><a class="active" href="#" id="reservation" onclick="redirect();">RESERVATION</a></li>
+        <li class="tab col s2"><a class="active" href="#" id="membership" onclick="redirect();">MEMBERSHIP</a></li>
+        <li class="tab col s2"><a class="active" href="#" id="support" onclick="redirect();">SUPPORT</a></li>
       </ul>
-    </div>
+    
 
 </body>
 </html>

@@ -131,4 +131,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <insert id="insertVisitCount">
   insert into visit values(now())
  </insert>
+ 
+  <select id="selectR_date" resultType="int">
+ select count(*) from reservation where to_days(now()) - to_days(r_date) <![CDATA[<=]]> 7
+ </select>
+ 
+ <select id="mTotal" resultType="int">
+  select sum(r_total) from reservation where to_days(now()) - to_days(r_date) <![CDATA[<=]]> 30
+ </select>
+ 
+ <select id="selectMartin" resultType="projectpack.business.GraphDto">
+  select date_format(r_out, '%Y,%c,%d') as outdate,v_brand,sum(r_total) as r_total from reservation left outer join vehicle on r_vno = v_no where v_brand = 'aston martin' group by outdate	
+ </select>
+ 
+ <select id="selectLamborghini" resultType="projectpack.business.GraphDto">
+ select date_format(r_out, '%Y,%c,%d') as outdate,v_brand,sum(r_total) as r_total from reservation left outer join vehicle on r_vno = v_no where v_brand = 'Lamborghini' group by outdate
+ </select>
+ 
+ <select id="selectBugatti" resultType="projectpack.business.GraphDto">
+ select date_format(r_out, '%Y,%c,%d') as outdate,v_brand,sum(r_total) as r_total from reservation left outer join vehicle on r_vno = v_no where v_brand = 'Bugatti' group by outdate
+ </select>
+ 
+ <select id="selectMaserati" resultType="projectpack.business.GraphDto">
+ select date_format(r_out, '%Y,%c,%d') as outdate,v_brand,sum(r_total) as r_total from reservation left outer join vehicle on r_vno = v_no where v_brand = 'Maserati' group by outdate
+ </select>
+ 
+ <select id="selectBMW" resultType="projectpack.business.GraphDto">
+ select date_format(r_out, '%Y,%c,%d') as outdate,v_brand,sum(r_total) as r_total from reservation left outer join vehicle on r_vno = v_no where v_brand = 'BMW' group by outdate
+ </select>
+ 
+ <select id="selectOutlist" resultType="projectpack.business.IndexlistDto">
+ select c_name,v_brand,v_name,r_out,r_total from reservation inner join vehicle on r_vno = v_no inner join customer on r_cno = c_no where substr(r_out, 1, 10) = curdate()
+ </select>
+ 
+ <select id="selectCaryn" parameterType="hashmap" resultType="projectpack.business.ReservationDto">
+ select v_name, r_in, r_out from reservation left outer join vehicle on r_vno = v_no where v_name = #{v_name} and date_format(r_out, '%Y-%m-%d %H:%i') <![CDATA[>]]>date #{r_out} and  date_format(r_in, '%Y-%m-%d %H:%i') <![CDATA[<]]> date #{r_in}
+ </select> 
+ 
  </mapper>

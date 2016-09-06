@@ -358,6 +358,85 @@ public class ProcessDao {
       return b;
    }
    
+ 
+ 	
+//차종별 그래프 그리기====================================
+ 	
+ 	//에스턴 마틴
+ 	public List selectMartin(){
+ 		List list = null;
+ 		SqlSession sqlSession = factory.openSession();
+ 			try {
+ 				list = sqlSession.selectList("selectMartin");
+ 				sqlSession.close();
+ 			} catch (Exception e) {
+ 				// TODO: handle exception
+ 			}
+ 		return list;
+ 	}
+ 	
+ 	//Lamborghini
+ 	public List selectLamborghini(){
+ 		List list = null;
+ 		SqlSession sqlSession = factory.openSession();
+ 			try {
+ 				list = sqlSession.selectList("selectLamborghini");
+ 				sqlSession.close();
+ 			} catch (Exception e) {
+ 				// TODO: handle exception
+ 			}
+ 		return list;
+ 	}
+ 	//Bugatti
+ 	public List selectBugatti(){
+ 		List list = null;
+ 		SqlSession sqlSession = factory.openSession();
+ 			try {
+ 				list = sqlSession.selectList("selectBugatti");
+ 				sqlSession.close();
+ 			} catch (Exception e) {
+ 				// TODO: handle exception
+ 			}
+ 		return list;
+ 	}
+ 	//Maserati
+ 	public List selectMaserati(){
+ 		List list = null;
+ 		SqlSession sqlSession = factory.openSession();
+ 			try {
+ 				list = sqlSession.selectList("selectMaserati");
+ 				sqlSession.close();
+ 			} catch (Exception e) {
+ 				// TODO: handle exception
+ 			}
+ 		return list;
+ 	}
+ 	//BMW
+ 	public List selectBMW(){
+ 		List list = null;
+ 		SqlSession sqlSession = factory.openSession();
+ 			try {
+ 				list = sqlSession.selectList("selectBMW");
+ 				sqlSession.close();
+ 			} catch (Exception e) {
+ 				// TODO: handle exception
+ 			}
+ 		return list;
+ 	}
+ 	
+ 	//오늘 출고 차량 출력
+ 	public List selectOutlist(){
+ 		List list = null;
+ 		SqlSession sqlSession = factory.openSession();
+ 			try {
+ 				list = sqlSession.selectList("selectOutlist");
+ 				sqlSession.close();
+ 			} catch (Exception e) {
+ 				// TODO: handle exception
+ 			}
+ 		return list;
+ 	}
+   
  //인원수 카운트
    public int visitCount(){
       int c = 0;
@@ -382,4 +461,44 @@ public class ProcessDao {
          sqlSession.rollback();
       }
    }
+   
+ //오늘 예약주문 수
+  	public int reserCount(){
+  		int i = 0;
+  		SqlSession sqlSession = factory.openSession();
+  		try {
+  			i = sqlSession.selectOne("selectR_date");
+  		} catch (Exception e) {
+  			System.out.println("reserCount err : " + e);
+  		}
+  		return i;
+  	}
+  	
+  	//한달간 매출액
+  	public int monthTotal(){
+  		int i = 0;
+  		SqlSession sqlSession = factory.openSession();
+  		try {
+  			i = sqlSession.selectOne("mTotal");
+  		} catch (Exception e) {
+  			System.out.println("monthTotal err : " + e);
+  		}
+  		return i;
+  	}
+  	
+  	//자동차 
+    public boolean selectCar(HashMap<String, String> map){
+        boolean b = false;
+        SqlSession sqlSession = factory.openSession();
+        try {
+         ReservationDto dto = sqlSession.selectOne("selectCaryn",map);
+         if(dto == null) b = true;
+        
+     } catch (Exception e) {
+        // TODO: handle exception
+     }finally {
+          if(sqlSession != null) sqlSession.close();   
+       }
+        return b;
+	}
 }

@@ -68,7 +68,7 @@
       
       <div class="col s6 push-s6" style="width: 50%;"><span class="flow-text">
       
-        <ul class="collapsible" data-collapsible="accordion">
+        <ul class="collapsible popout" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
       <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
@@ -87,7 +87,7 @@
       </div>
       <div class="col s6 pull-s6" style="width: 50%;"><span class="flow-text">
       
-           <ul class="collapsible" data-collapsible="accordion">
+           <ul class="collapsible popout" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
       <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
@@ -134,7 +134,7 @@
    d
    </pre>
    <div id="footer">
-   <jsp:include page="../bottom_index.jsp" />
+   <jsp:include page="../index/bottom_index.jsp" />
    </div>
    </div>
    <script type="text/javascript"

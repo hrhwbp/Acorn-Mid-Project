@@ -3,6 +3,7 @@
   <display-name>ShimCar</display-name>
   <welcome-file-list>    
     <welcome-file>index.jsp</welcome-file>
+    <welcome-file>/index/index.jsp</welcome-file>
     <welcome-file>/customer/c_index.jsp</welcome-file>        
   </welcome-file-list>
     <listener>

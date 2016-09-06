@@ -1,7 +1,14 @@
+<%@page import="projectpack.business.IndexlistDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="projectpack.business.GraphDto"%>
+<%@page import="java.util.List"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="processDao" class="projectpack.business.ProcessDao"/>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="processDao" class="projectpack.business.ProcessDao"/>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -55,10 +62,17 @@
 <script type="text/javascript" src="../js/jquery.canvasjs.min.js"></script>
 
   <script type="text/javascript">
+	  <%
+	  ArrayList<GraphDto> martinlist = (ArrayList)processDao.selectMartin();
+	  ArrayList<GraphDto> Lamborghinilist = (ArrayList)processDao.selectLamborghini();
+	  ArrayList<GraphDto> Bugattilist = (ArrayList)processDao.selectBugatti();
+	  ArrayList<GraphDto> Maseratilist = (ArrayList)processDao.selectMaserati();
+	  ArrayList<GraphDto> BMWlist = (ArrayList)processDao.selectBMW();
+	  %>
   window.onload = function () {
     var chart1 = new CanvasJS.Chart("chartContainer",
     {      
-        title:{text: "월매출"}, animationEnabled: true,
+        title:{text: "브랜드별 매출"}, animationEnabled: true,
         axisY :{includeZero: false, prefix: "w"},
         toolTip: {shared: true,
         	content: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span> <span style='\"'color: dimgrey;'\"'>${m}</span> "
@@ -70,87 +84,84 @@
         {        
             type: "splineArea", 
             showInLegend: true,
-            name: "부가티",
+            name: "Aston Martin",
             color: "rgba(54,158,173,.6)",
             dataPoints: [
-            {x: new Date(2012, 1), y: 30000},
-            {x: new Date(2012, 3), y: 35000},
-            {x: new Date(2012, 4), y: 30000},
-            {x: new Date(2012, 5), y: 30400},
-            {x: new Date(2012, 6), y: 20900},
-            {x: new Date(2012, 7), y: 31000},
-            {x: new Date(2012, 8), y: 30200},
-            {x: new Date(2012, 9), y: 30000},
-            {x: new Date(2012, 10), y: 33000},
-            {x: new Date(2012, 11), y: 38000},
-            {x: new Date(2013, 0),  y: 38900},
-            {x: new Date(2013, 1),  y: 39000}
-
+			{x: new Date(2016, 7, 20), y: 0},
+            <%
+            for(GraphDto s:martinlist){
+            %>
+            {x: new Date(<%=s.getOutdate()%>), y: <%=s.getR_total()%>},
+            <%
+            }
+			%>
             ]
         },
         {        
             type: "splineArea", 
             showInLegend: true,
-            name: "마세라티",        
+            name: "Lamborghini",        
             color: "rgba(134,180,2,.7)",
             dataPoints: [
-            {x: new Date(2012, 1), y: 20100},
-            {x: new Date(2012, 3), y: 16000},
-            {x: new Date(2012, 4), y: 14000},
-            {x: new Date(2012, 5), y: 18000},
-            {x: new Date(2012, 6), y: 18000},
-            {x: new Date(2012, 7), y: 21000},
-            {x: new Date(2012, 8), y: 22000},
-            {x: new Date(2012, 9), y: 25000},
-            {x: new Date(2012, 10), y: 23000},
-            {x: new Date(2012, 11), y: 25000},
-            {x: new Date(2013, 0), y: 26000},
-            {x: new Date(2013, 1), y: 25000}
-
+			{x: new Date(2016, 7, 20), y: 0},
+            <%
+            for(GraphDto l:Lamborghinilist){
+            %>
+            {x: new Date(<%=l.getOutdate()%>), y: <%=l.getR_total()%>},
+            <%
+            }
+			%>
             ]
         },
         {        
             type: "splineArea", 
             showInLegend: true,
-            name: "포르쉐",
+            name: "Bugatti",
             color: "rgba(194,70,66,.6)",        
             dataPoints: [
-            {x: new Date(2012, 1), y: 10100},
-            {x: new Date(2012, 3), y: 6000},
-            {x: new Date(2012, 4), y: 3400},
-            {x: new Date(2012, 5), y: 4000},
-            {x: new Date(2012, 6), y: 9000},
-            {x: new Date(2012, 7), y: 3900},
-            {x: new Date(2012, 8), y: 4200},
-            {x: new Date(2012, 9), y: 5000},
-            {x: new Date(2012, 10), y: 14300},
-            {x: new Date(2012, 11), y: 12300},
-            {x: new Date(2013, 0), y: 8300},
-            {x: new Date(2013, 1), y: 6300}
+			{x: new Date(2016, 7, 20), y: 0},
+            <%
+            for(GraphDto l:Bugattilist){
+            %>
+            {x: new Date(<%=l.getOutdate()%>), y: <%=l.getR_total()%>},
+            <%
+            }
+			%>
 
             ]
         },
         {        
             type: "splineArea", 
             showInLegend: true,
-            name: "람보르기니",
+            name: "Maserati",
             color: "rgba(127,96,132,.6)",        
             dataPoints: [
-            {x: new Date(2012, 1), y: 1700},
-            {x: new Date(2012, 3), y: 2600},
-            {x: new Date(2012, 4), y: 1000},
-            {x: new Date(2012, 5), y: 1400},
-            {x: new Date(2012, 6), y: 900},
-            {x: new Date(2012, 7), y: 1000},
-            {x: new Date(2012, 8), y: 1200},
-            {x: new Date(2012, 9), y: 5000},
-            {x: new Date(2012, 10), y: 1300},
-            {x: new Date(2012, 11), y: 2300},
-            {x: new Date(2013, 0), y: 2800},
-            {x: new Date(2013, 1), y: 1300}
-
+            {x: new Date(2016, 7, 20), y: 0},
+            <%
+            for(GraphDto l:Maseratilist){
+            %>
+            {x: new Date(<%=l.getOutdate()%>), y: <%=l.getR_total()%>},
+            <%
+            }
+			%>
             ]
-        }      
+        },
+        {        
+            type: "splineArea", 
+            showInLegend: true,
+            name: "BMW",
+            color: "rgba(127,96,132,.6)",        
+            dataPoints: [
+            {x: new Date(2016, 7, 20), y: 0},
+            <%
+            for(GraphDto l:BMWlist){
+            %>
+            {x: new Date(<%=l.getOutdate()%>), y: <%=l.getR_total()%>},
+            <%
+            }
+			%>
+            ]
+        }    
 
         ]
     });
@@ -164,42 +175,69 @@ chart1.render();
 <body>
 <%@ include file = "a_top.jsp" %>
 <%
-int i = processDao.visitCount();
+int count = processDao.visitCount();
+int reser = processDao.reserCount();
+int total = processDao.monthTotal();
+DecimalFormat df = new DecimalFormat("#,##0.0");
 %>
+
 <!-- 메인 현황(처음) -->
 <div id="main-stats">
 	<div class="row stats-row">
 		<div class="col-md-4 col-sm-4 stat">
 			<div class="data">
-				<span class="number"><%=i %></span>users
+				<span class="number"><%=count%></span>users
 			</div>
 			<span class="date">오늘날짜</span>
+			
 		</div>
 		<div class="col-md-4 col-sm-4 stat">
 			<div class="data">
-				<span class="number">322</span>주문
+				<span class="number"><%=reser%></span>주문
 			</div>
 			<span class="date">주간 주문 현황</span>
 		</div>
 		<div class="col-md-4 col-sm-4 stat last">
 			<div class="data">
-				<span class="number">2,340,000</span>
+				<span class="number">
+				
+				<fmt:formatNumber value="<%=total %>" pattern="#,##0"/>
+				</span>
+				원
 			</div>
-			<span class="date">한달간 매출현황</span>
+			<span class="date">최근 한달간 매출</span>
 		</div>
 	</div>
 </div>
 <!-- 메인 현황(끝) -->
 
 
-
-주문 현황**
+<%
+ArrayList<IndexlistDto> outlist = (ArrayList)processDao.selectOutlist();
+%>
+오늘 출고 차량
 <table class="bordered highlight">
-	<thead><tr><th data-field="id">주문자 명</th><th data-field="name">주문 차량</th><th data-field="price">대여 가격</th></tr></thead>
+	<thead>
+	<tr>
+		<th data-field="id">주문자 명</th>
+		<th data-field="name">주문 차량</th>
+		<th data-field="out">출고시간</th>
+		<th data-field="price">대여 가격</th>
+	</tr>
+	</thead>
 	<tbody>
-<% 
-
-%>		
+		<%
+		for(IndexlistDto l:outlist){
+		%>
+		<tr>
+			<td><%=l.getC_name()%></td>
+			<td><%=l.getV_brand()%>-<%=l.getV_name()%></td>
+			<td><%=l.getR_out()%></td>
+			<td><fmt:formatNumber value="<%=l.getR_total()%>" pattern="#,##0"/></td>
+		</tr>
+		<%
+		}
+		%>
 	</tbody>
 </table>
 <br>
@@ -222,19 +260,4 @@ int i = processDao.visitCount();
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

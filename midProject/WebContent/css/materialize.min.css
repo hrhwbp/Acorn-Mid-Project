@@ -53,7 +53,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: #000;
+  background: rgba(0, 0, 0, 1);
   max-height: 500px;
 }
 .video-container .poster img {
@@ -61,17 +61,20 @@ main {
   bottom: 0;
   position: absolute;
 }
-.video-container .filter {
+
+<!-- index/index.jsp 동영상화면 음영처리 -->
+
+.video-container .filter1 {
   z-index: 100;
   position: absolute;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 1);
   width: 100%;
 }
 
 .video-container .iconplace {
   z-index: 100;
-  position: relative;
-  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
   left : 15%;
   width: 70%;
 }
@@ -111,7 +114,7 @@ main {
   bottom: 0;
 }
 .video-container video.fillWidth {
-  width: 100%;
+  width: 100%;  
 }
 
 html {
