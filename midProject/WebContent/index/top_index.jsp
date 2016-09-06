@@ -14,7 +14,7 @@
         <li class="tab col s3"><a href="#test2">VEHICLES</a></li>
         <li class="tab col s3"><a href="#test3">RESERVATION</a></li>
         <li class="tab col s3"><a href="#test4">MEMBERSHIP</a></li>
-        <li class="tab col s3"><a class="active" target="_self" href="board/freq.jsp">CUSTOMER SERVICES</a></li>
+        <li class="tab col s3"><a class="active" target="_self" href="../board/freq.jsp">CUSTOMER SERVICES</a></li>
       </ul>
     </div>
 

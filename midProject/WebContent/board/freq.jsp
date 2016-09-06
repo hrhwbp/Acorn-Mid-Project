@@ -60,7 +60,7 @@
 </head>
 <body>
    <div id="container">
-   <jsp:include page="../top_index.jsp" />
+   <jsp:include page="../index/top_index.jsp" />
    <table width="100%" ><tr><td>
       
    <div class="row">
