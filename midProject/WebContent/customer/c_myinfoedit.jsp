@@ -16,7 +16,7 @@
   </script>
   <%
   }
-CustomerDto dto = processDao.selectcustomerPart(id);
+CustomerDto dto = processDao.selectcustomerPartId(id);
 %>   
 
 </head>
@@ -28,7 +28,7 @@ CustomerDto dto = processDao.selectcustomerPart(id);
 <tr><td>비밀번호 :</td><td> <input type="password" name="c_pw" value="<%=dto.getC_pw() %>"></td></tr>
 
 <tr><td>이름 : </td><td><input type="text" name="c_name" value="<%=dto.getC_name() %>"></td></tr>
-<tr><td>주민번호 : </td><td><input type="text" name="c_jumin" value="<%=dto.getC_jumin() %>"></td></tr>
+<tr><td>주민번호 : </td><td><input type="text" name="c_jumin_first" value="<%=dto.getC_jumin_first() %>"><input type="text" name="c_jumin_last" value="<%=dto.getC_jumin_last() %>"></td></tr>
 <tr><td>주소 : </td><td><input type="text" name="c_addr" value="<%=dto.getC_addr() %>"></td></tr>
 <tr><td>전화번호 : </td><td><input type="text" name="c_tel" value="<%=dto.getC_tel() %>"></td></tr>
 <tr><td>면허정보 : </td><td><input type="text" name="c_lic" value="<%=dto.getC_lic() %>"></td></tr>
