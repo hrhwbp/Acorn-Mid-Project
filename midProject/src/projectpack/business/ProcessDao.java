@@ -292,10 +292,26 @@ public class ProcessDao {
 		return b;
 	}
 	
-	//자동차 목록보기
+		//자동차 목록보기
 	public List selectVehicleAll() throws SQLException{
 		SqlSession sqlSession = factory.openSession();
 		List list = sqlSession.selectList("selectVehicleAll");
+		sqlSession.close();
+		return list;
+	}
+	//자동차 브랜드보기	
+	public List selectVehicleBrand() throws SQLException{
+		SqlSession sqlSession = factory.openSession();
+		List list = sqlSession.selectList("selectVehicleBrand");
+		sqlSession.close();
+		return list;
+	}
+	
+	//차종 브랜드별로 뽑기	
+	public List selectVehiclebyBrand(String arg) throws SQLException{
+		SqlSession sqlSession = factory.openSession();
+		List list = sqlSession.selectList("selectVehiclebyBrand",arg);
+		System.out.println(arg);
 		sqlSession.close();
 		return list;
 	}
