@@ -1,10 +1,14 @@
-$(document).ready(function() {
+
+
+/* 다른 파일들에 영향을 줌으로 $(documnet).ready나 
+ * window.onload()는 삼가 해야함!
+ * $(document).ready(function() {
    $("#update").click(function(){
       location.href="c_myinfoedit.jsp"
    });
    $(".modal-trigger").leanModal();
    $('select').material_select();
-});
+});*/
 
 
 function funcLogin(){
@@ -12,9 +16,9 @@ function funcLogin(){
    if(loginFrm.id.value === ""){
       alert("id 입력해주세요");
       loginFrmid.focus();
-   }else if(loginFrm.passwd.value === ""){
+   }else if(loginFrm.pw.value === ""){
       alert("비번 입력");
-      loginFrm.passwd.focus();
+      loginFrm.pw.focus();
    }else{
       loginFrm.action = "c_loginproc.jsp";      
       loginFrm.method="post";

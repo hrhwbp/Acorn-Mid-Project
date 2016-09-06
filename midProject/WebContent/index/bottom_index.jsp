@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col l6 s12">
-				<h5 class="white-text">THE SHUIM MOTORS</h5>
+				<h5 class="red-text text-accent-1">THE SHUIM MOTORS</h5>
 				<p class="grey-text text-lighten-4">We provide the world's best
 					Motor Vehicles to Our Exclusive members
 					for their luxurious leisure activities.</p>

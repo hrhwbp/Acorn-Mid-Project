@@ -24,6 +24,7 @@
 }
 
 body {
+	background: rgba(255,0,0,1)
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
@@ -62,7 +63,7 @@ main {
   position: absolute;
 }
 
-<!-- index/index.jsp 동영상화면 음영처리 -->
+/* index/index.jsp 동영상화면 음영처리*/
 
 .video-container .filter1 {
   z-index: 100;
@@ -115,6 +116,50 @@ main {
 }
 .video-container video.fillWidth {
   width: 100%;  
+}
+
+/* 예약페이지 설정*/
+
+div.reservation{
+	/*
+	z-index: 10;
+    background: rgba(255,255,255,0.7);
+    margin-bottom: 0;
+    padding-bottom: 2px;
+    padding-top: 1px;
+    width: 100%*/
+    
+    z-index: 2;
+    position: relative;
+    width: 100%
+}
+
+.slider{
+	z-index: 1;
+	position: absolute;
+	height: 545px;
+	width: 100%
+	!important;
+	
+}
+
+.slides{
+	height: 570px;
+	!important;	
+}
+
+div.contain.reservation.main{
+	background: rgba(255,255,255,0.5);
+	z-index: 2;
+    position: fixed;    
+    width: 100%;
+    top: 48px;
+}
+
+footer.page-footer.black {
+	position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
 
 html {

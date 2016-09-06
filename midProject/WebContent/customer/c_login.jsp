@@ -23,11 +23,11 @@ if(id != null){
 		<tr><td colspan="2">고객님 로그인</td></tr>
 		<tr>
 		<td>아이디:</td>
-		<td><input type="text" name="id"></td>
+		<td><input type="text" id="id" name="c_id"></td>
 		</tr>
 		<tr>
 		<td>비밀번호:</td>
-		<td><input type="text" name="passwd"></td>
+		<td><input type="text" id="pw" name="c_pw"></td>
 		</tr>
 		<tr>
 		<td colspan="2">
