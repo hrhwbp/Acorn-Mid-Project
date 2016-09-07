@@ -1,7 +1,15 @@
 package projectpack.business;
 
 public class VehicleDto {
-String v_no, v_brand, v_name, v_price, v_type, v_count, v_avail, v_status;
+String v_no, v_brand, v_name, v_price, v_type, v_count, v_avail, v_status, v_img;
+
+public String getV_img() {
+	return v_img;
+}
+
+public void setV_img(String v_img) {
+	this.v_img = v_img;
+}
 
 public String getV_no() {
 	return v_no;

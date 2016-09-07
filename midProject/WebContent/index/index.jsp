@@ -11,6 +11,7 @@
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"
 	media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 </head>
 <body style="background-color: black;">
 	<%@ include file="top_index.jsp"%>
@@ -18,20 +19,18 @@
 		<div class="video-container">
 			<div class="title-container">
 				<div class="headline">
-					<div class="filter">
+					<div class="filter1">
 						<div class="iconplace">
 							<div class="row">
 								<!-- 첫번째 카드 -->
 								<div class="col s12 m6">
 									<div class="card blue-grey darken-1 hoverable">
 										<div class="card-content white-text">
-											<span class="card-title Transparent">BROWSE A VEHICLE</span>
-											<p>We are proudly serve our exclusive members the world's
-												best premium luxury vehicles. Please check our beautiful
-												selection for your SHUIM TIME.</p>
+											<span class="card-title">BROWSE A VEHICLE</span>
+											<p></p>
 										</div>
 										<div class="card-action">
-											<a href="#">This is a link</a> <a href="#">This is a link</a>
+											<a href="../vehicle/vehicle.jsp">BROWSE A VEHICLE</a>
 										</div>
 									</div>
 								</div>
@@ -40,22 +39,20 @@
 									<div class="card blue-grey darken-1 hoverable">
 										<div class="card-content white-text">
 											<span class="card-title">RESERVE A VEHICLE</span>
-											<p>I am a very simple card. I am good at containing small
-												bits of information. I am convenient because I require
-												little mark up to use effectively.</p>
+											<p></p>
 										</div>
 										<div class="card-action">
-											<a href="#">This is a link</a> <a href="#">This is a link</a>
+											<a href="../reservation/r_main.jsp">RESERVE A VEHICLE</a>
 										</div>
+										<!-- <div class="card-action">
+											<a href="#">This is a link</a> <a href="#">This is a link</a>
+										</div> -->
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="description">
-					<!-- <div class="inner">blah~hlah~blah~blah~hlah~ㅅㅂblah</div> -->
-				</div>
+				</div>				
 			</div>
 
 			<!--동영상 주소 설정 입력  -->

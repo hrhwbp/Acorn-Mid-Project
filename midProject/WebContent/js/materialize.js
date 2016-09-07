@@ -3403,8 +3403,8 @@ $(document).ready(function(){
 
     init : function(options) {
       var defaults = {
-        indicators: true,
-        height: 400,
+        indicators: false,
+        height: 620,
         transition: 500,
         interval: 6000
       };
@@ -3477,7 +3477,7 @@ $(document).ready(function(){
         if (!$this.hasClass('fullscreen')) {
           if (options.indicators) {
             // Add height if indicators are present
-            $this.height(options.height + 40);
+            $this.height(options.height); //$this.height(options.height + 40);
           }
           else {
             $this.height(options.height);

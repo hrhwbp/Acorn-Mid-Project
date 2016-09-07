@@ -308,55 +308,56 @@ public class ProcessDao {
       return dto;
    }
    
-   //자동차 새정보 삽입
-   public boolean insertVehicle(VehicleDto dto){
-      SqlSession sqlSession = factory.openSession();
-      boolean b = false;
-      try {
-         int re = sqlSession.insert("insertVehicle", dto);
-         if(re > 0) b = true;
-         sqlSession.commit();
-         
-      } catch (Exception e) {
-         sqlSession.rollback();
-      }finally {
-         if(sqlSession != null) sqlSession.close();
-      }
-      return b;      
-   }
+	//자동차 새정보 삽입
+	public boolean insertVehicle(VehicleDto dto){
+		SqlSession sqlSession = factory.openSession();
+		boolean b = false;
+		try {
+			System.out.println(dto.getV_brand());
+			int re = sqlSession.insert("insertVehicle", dto);
+			if(re > 0) b = true;
+			sqlSession.commit();
+			
+		} catch (Exception e) {
+			sqlSession.rollback();
+		}finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		return b;		
+	}
    
-   //자동차 정보 업데이트 
-   public boolean updateVehicle(VehicleDto dto){
-      SqlSession sqlSession = factory.openSession();
-      boolean b = false;
-      try {
-         int cou = sqlSession.insert("updateVehicle", dto);
-         if(cou > 0)  b = true;
-         sqlSession.commit();
-      } catch (Exception e) {
-         sqlSession.rollback();
-      }finally {
-         if(sqlSession != null) sqlSession.close();   
-      }
-         return b;
-   }
+	//자동차 정보 업데이트 
+	public boolean updateVehicle(VehicleDto dto){
+		SqlSession sqlSession = factory.openSession();
+		boolean b = false;
+		try {
+			int cou = sqlSession.insert("updateVehicle", dto);
+			if(cou > 0)  b = true;
+			sqlSession.commit();
+		} catch (Exception e) {
+			sqlSession.rollback();
+		}finally {
+			if(sqlSession != null) sqlSession.close();	
+		}
+			return b;
+	}
    
-   //자동차 정보 삭제
-   public boolean deleteVehicle(int arg){
-      SqlSession sqlSession = factory.openSession();//자동
-      boolean b = false;
-      try {
-         int cou = sqlSession.delete("deleteVehicle",arg);
-         if(cou > 0)  b = true;
-         sqlSession.commit();
-      } catch (Exception e) {
-         sqlSession.rollback();
-      }finally {
-         if(sqlSession != null) sqlSession.close();   
-      }
-      
-      return b;
-   }
+   	//자동차 정보 삭제
+ 	public boolean deleteVehicle(String id){
+ 		SqlSession sqlSession = factory.openSession();//자동
+ 		boolean b = false;
+ 		try {
+ 			int cou = sqlSession.delete("deleteVehicle",id);
+ 			if(cou > 0)  b = true;
+ 			sqlSession.commit();
+ 		} catch (Exception e) {
+ 			sqlSession.rollback();
+ 		}finally {
+ 			if(sqlSession != null) sqlSession.close();	
+ 		}
+ 		
+ 		return b;
+ 	}
    
  
  	

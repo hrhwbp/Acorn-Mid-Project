@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
+<script>
 
 //상단 메뉴 탭바를 통한 이동경로 및 액션 설정----------------------
 function redirect(arg){	
@@ -25,6 +25,7 @@ function redirect(arg){
 	location.href = "../board/freq.jsp";
 	}
 }
+
 
 </script>
 </head>

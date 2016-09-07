@@ -12,14 +12,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script type="text/javascript"
    src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript">
+<script>
    $(document).ready(function() {
       $('.collapsible').collapsible({
-         accordion : false
-      // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+         accordion : false      
       });
+    $('ul.tabs').tabs('select_tab', 'support');
    });
 </script>
+
 <style type="text/css">
    html,body { 
    height: 100%; 

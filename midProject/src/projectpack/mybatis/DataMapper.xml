@@ -99,7 +99,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
  
   <select id="selectVehiclebyBrand" resultType="projectpack.business.VehicleDto">
-  select v_name from vehicle where v_brand=#{v_brand} order by v_no asc
+  select * from vehicle where v_brand=#{v_brand} order by v_no asc
  </select>
  
  <select id="selectVehicleById" parameterType="string" resultType="projectpack.business.VehicleDto">
@@ -108,7 +108,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
  <insert id="insertVehicle" parameterType="projectpack.business.VehicleDto">
   insert into vehicle(v_brand, v_name, v_price, v_type, v_count, v_avail, v_status) 
-  values(v_brand, v_name, v_price, v_type, v_count, v_avail, v_status)
+  values(#{v_brand}, #{v_name}, #{v_price}, #{v_type}, #{v_count}, #{v_avail}, #{v_status})
  </insert>
  
  <update id="updateVehicle" parameterType="projectpack.business.VehicleDto">
