@@ -1,7 +1,15 @@
 package projectpack.business;
 
 public class ReservationDto {
-String r_no, r_cno, r_out, r_in, r_vno, r_ins, r_total, r_memo, r_date, v_brand, v_name, c_no, c_name, r_option, r_opt;
+String r_no, r_cno, r_out, r_in, r_vno, r_ins, r_total, r_memo, r_date, v_brand, v_name, c_no, c_name, r_option, r_opt, i_name;
+
+public String getI_name() {
+	return i_name;
+}
+
+public void setI_name(String i_name) {
+	this.i_name = i_name;
+}
 
 public String getR_no() {
 	return r_no;

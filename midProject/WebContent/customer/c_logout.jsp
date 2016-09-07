@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <%
 session.removeAttribute("c_id");
-response.sendRedirect("c_index.jsp");
+response.sendRedirect("../index/index.jsp?out=logout");
 %>

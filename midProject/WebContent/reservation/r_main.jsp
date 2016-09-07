@@ -54,12 +54,19 @@
 	function renew() {
 		alert("차종을 먼저 선택해주세요");
 		$("#out").val("");
-
 	}
 </script>
 </head>
 
 <body style="background-color: black;">
+
+<%if(session.getAttribute("c_id") == null){ 
+System.out.println("로그인하세요");
+System.out.println((String)request.getAttribute("c_id"));
+response.sendRedirect("../customer/c_login.jsp");
+
+}else{%>
+
 	<%@include file="../index/top_index.jsp"%>
 	<%ArrayList<VehicleDto> list = (ArrayList) processDao.selectVehicleBrand();%>
 
@@ -213,4 +220,6 @@
  </div>
 </body>
 </html>
+<%} %>
+
 <%@include file="../index/bottom_index.jsp"%>

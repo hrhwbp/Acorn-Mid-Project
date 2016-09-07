@@ -34,6 +34,21 @@ main {
 	flex: 1 0 auto;
 }
 
+div.login{
+	z-index: 1001;
+    position: absolute;
+    left: 10%;
+}
+
+div.container.register{
+	z-index: 1002;
+    position: absolute;        
+}
+
+div#modal_register{
+	z-index: 1003;
+}
+
 .homepage-hero-module {
   border-right: none;
   border-left: none;
@@ -170,7 +185,7 @@ div .filter{
 
 footer.page-footer.black {
 	position: absolute;
-    bottom: 0px;
+    /* bottom: 0px; */
     width: 100%;
     margin-top: 0px;
 }

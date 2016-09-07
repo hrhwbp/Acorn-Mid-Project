@@ -39,12 +39,12 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehiclebyBrand(v_name);
 	<%
 	for(VehicleDto s:list){
 	%>
-	<div class="card sticky-action col s4" >
+	<div class="card sticky-actioncal col s4" >
     	<div class="card-image waves-effect waves-block waves-light" style="height: 180px">
     	<%
     		if(v_name.equals("Lamborghini")){
     	%>
-      		<img style="margin-top: 10%" class="activator responsive-img" src="../carimage/<%=s.getV_img()%>" >
+      		<img style="margin-top: 10%" class="activator responsive-img" src="../image/<%=s.getV_img()%>" >
       	<%
     		}else{
     	%>

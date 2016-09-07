@@ -22,16 +22,27 @@
 
 $(document).ready(function() {
     $('select').material_select();
+    $('#v_brand > div > input').attr("name","v_brand");
+    $('#v_name > div > input').attr("name","v_name");
+    $('#hour > div > input').attr("name","hour");
+    $('#min > div > input').attr("name","min");
+    $('#backhour > div > input').attr("name","bhour");
+    $('#backmin > div > input').attr("name","bmin");
+    $('#r_option > div > input').attr("name","r_option");
+    $('#r_opt > div > input').attr("name","r_opt");
+    
+    
   });
 $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
-  
+
 function selectcar(){
    /* alert(document.getElementById("v_brand").value); */
    location.href="r_main.jsp";   
 }  
+
 </script>
 </head>
 <body>
@@ -43,7 +54,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
 ;
 %>
 <div class="container">
-  <form action="#" name="frmcarsearch">
+  <form action="r_carselecynproc.jsp" name="frmcarsearch">
      <div class="row">
      <h4 class="col offset-s1">예약 차량 조회</h4>
      <p/>
@@ -51,7 +62,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
      </div>
    <div class="row s12">
       <div class="col s3 offset-s1">
-       <div class="input-field">
+       <div class="input-field" id="v_brand">
           <select name="v_brand"  onchange = "selectcar()" id="v_brand">
             <option value="" disabled selected><%=session.getAttribute("v_brand") %></option>
             <option value="">브랜드 재선택</option>
@@ -61,7 +72,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
         </div>
       </div>
       <div class="col s7 ">
-       <div class="input-field">
+       <div class="input-field" id="v_name">
           <select name="v_no">
       <option value="" disabled selected>차량을 선택해주세요</option>
             <%
@@ -82,7 +93,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
    <div class="row">
       <div class="col s2 offset-s1">
          <label for="out">대여일시</label>
-         <input id="out" type="date" class="datepicker" onchange = "rentday()">
+         <input id="out" type="date" class="datepicker" onchange = "rentday()" name="rday">
       </div>
       <div class="col s1">
       <div class="input-field center-align" id="hour">
@@ -96,7 +107,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
       </div>
       <div class="col s1">
-      <div class="input-field center-align">
+      <div class="input-field center-align" id="min">
            <select id="min" onchange="rentmin()">
             <option value="" disabled selected>분</option>
             <c:forEach begin="00" end ="50" var ="MM" step="10">
@@ -108,7 +119,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
       <div class="col s2 offset-s2" >
          <label for="in">반납일시</label>
-         <input id="in" type="date" class="datepicker" onchange="backday()">
+         <input id="in" type="date" class="datepicker" onchange="backday()" name="bday">
       </div>
       <div class="col s1">
       <div class="input-field center-align" id="backhour">
@@ -135,13 +146,13 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
    </div>
    <div class="row">
          <div class="col s10 offset-s1">
-             <div class="input-field">
+             <div class="input-field" id="r_option">
                 <select name="">
                   <option value="" disabled selected>필수옵션</option>
-                  <option>보험1</option>
-                  <option>보험2</option>
-                  <option>보험3</option>
-                  <option>보험4</option>
+                  <option>기본대물보상보험</option>
+                  <option>기본자차보험</option>
+                  <option>슈퍼자차보험</option>
+                  <option>올커버보험</option>
                 </select>
                 <label>보험 선택</label>
               </div>
@@ -149,7 +160,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
    <div class="row">
       <div class="col s10 offset-s1">
-          <div class="input-field">
+          <div class="input-field" id="r_opt">
              <select name="">
                <option value="" disabled selected>선택옵션</option>
                <option>없음</option>
@@ -162,18 +173,16 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
    </div>
    <div class="row">
-   <div class="col s6 offset-s3 center-align">
-      <a class="waves-effect waves-light btn" 
+   <div class="col s6 offset-s3 center-align ">
+      <a class="waves-effect waves-light btn modal-trigger" href="#" onclick = "frmcarsearch.submit()"
             style="margin-top: 15px; font-size: 10px">
             조회
             </a>
    </div>
    </div>
-   
   </form>
 </div>
-
+          
 <%@include file="../customer/c_bottom.jsp" %>
 </body>
 </html>
-   <%session.removeAttribute("v_brand"); %>

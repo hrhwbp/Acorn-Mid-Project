@@ -10,7 +10,7 @@
    $('select').material_select();
 });*/
 
-
+//로그인시 자료검색 및 정보 넘기 검사
 function funcLogin(){
    
    if(loginFrm.id.value === ""){
@@ -25,6 +25,7 @@ function funcLogin(){
       loginFrm.submit();
    }   
 }
+
 function funcAlogin(){
    
    if(loginFrm.id.value === ""){
@@ -64,6 +65,7 @@ function dongCheck(){
    }
    zipForm.submit();
 }
+
 function send(zipcode, area1, area2, area3, area4){
 //alert(zipcode + " " + area1);
 opener.document.regForm.c_zip.value = zipcode;
@@ -71,6 +73,8 @@ var addr = area1 + " " + area2 + " "  + area3 + " " + area4;
 opener.document.regForm.c_addr.value = addr;
 window.close();
 }
+
+//예약에 관련한 날짜점검 스크립트
 function rentday(){
    var rentDate = new Date((document.getElementById("out").value));
    var today = new Date();
@@ -80,6 +84,7 @@ function rentday(){
       alert("오늘 이전 날짜는 선택하실 수 없습니다.");
    };
 }
+
 function renttime(){
    var rentDate = new Date((document.getElementById("out").value));
       var today = new Date();
@@ -90,9 +95,9 @@ function renttime(){
           $("input[value='시']").val("시");
           
       };   
-     }
-     
+     }     
 }
+
 function rentmin(){
    var rentDate = new Date((document.getElementById("out").value));
       var today = new Date();
@@ -109,6 +114,7 @@ function rentmin(){
         
      }
 }
+
 function backday(){
       var rentDate = new Date((document.getElementById("out").value));
       var backDate = new Date((document.getElementById("in").value));

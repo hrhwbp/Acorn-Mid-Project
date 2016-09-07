@@ -22,8 +22,8 @@ if (session.getAttribute("a_id") == null) {
     <div class="nav-wrapper">
       <a href="#" class="brand-logo right">Logo</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="sass.html"><%=session.getAttribute("a_id")%>님 반갑습니다.</a></li>
-        <li><a href="a_manage.jsp">경영관리</a></li>
+        <li><a href="#"><%=session.getAttribute("a_id")%>님 반갑습니다.</a></li>
+        <li><a href="a_index.jsp">관리메인</a></li>
         <li><a href="a_vMgt.jsp">차량관리</a></li>
         <li><a href="a_reserve.jsp">예약관리</a></li>
         <li><a href="a_memberMgt.jsp">회원관리</a></li>

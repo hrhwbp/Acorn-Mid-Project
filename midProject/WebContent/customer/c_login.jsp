@@ -7,16 +7,22 @@
 <title>고객님 로그인</title>
 <script type="text/javascript"	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../js/js.js"></script>
+<script type="text/javascript">
+function funclogout() {
+	location.href = "c_logout.jsp";
+}
+</script>
 </head>
 <body>
-
+	<%@ include file="../index/top_index.jsp"%>
 <%
 String id = (String)session.getAttribute("c_id");
 if(id != null){
+	System.out.println(request.getHeader("referer"));
 	%>
 	<b><%=id %>님 환영</b><br>
 	<a href="../index.jsp">홈페이지</a><br>
-	<a href="logout.jsp">로그아웃</a>
+	<a href="javascript:funclogout()">로그아웃</a>
 	<%}else{%>
 	<form name="loginFrm" id = "customer">
 	<table>
@@ -41,5 +47,6 @@ if(id != null){
 <%	
 }
 %>
+	<%@ include file="../index/bottom_index.jsp"%>
 </body>
 </html>
