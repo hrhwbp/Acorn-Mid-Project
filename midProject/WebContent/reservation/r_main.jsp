@@ -16,13 +16,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>::::::RESERVATION::::::</title>
 
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"
-	media="screen,projection" />
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons"	rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../js/materialize.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {		
@@ -118,7 +115,7 @@ footer.page-footer.black {
 				<div class="row s12">
 					<div class="col s3 offset-s1">
 						<div class="input-field">
-							<select name="v_brand" onchange="selectcar()" id="v_brand">
+							<select name="" onchange="selectcar()" id="v_brand">
 								<option value="" disabled selected>브랜드 선택</option>
 								<%
 									for (VehicleDto d : list) {
@@ -241,10 +238,13 @@ footer.page-footer.black {
 		</ul>
 	</div>
 	<!---------------------- slider DIV끝 ------------------------>
-</body>
-</html>
 <%
 	}
 %>
 
+
+
+<%@include file="../reservation/r_modal.jsp" %> 
 <%@include file="../index/bottom_index.jsp"%>
+</body>
+</html>

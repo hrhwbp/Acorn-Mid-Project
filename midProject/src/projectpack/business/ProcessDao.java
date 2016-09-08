@@ -45,8 +45,7 @@ public class ProcessDao {
 		SqlSession sqlSession = factory.openSession();
 		try {
 			CustomerDto dto = sqlSession.selectOne("loginCustomer", map);
-			if (dto != null)
-				b = true;
+			if (dto != null) b = true;
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {
@@ -74,6 +73,74 @@ public class ProcessDao {
 		}
 		return b;
 	}
+	
+	//관리자정보 읽어오기
+	   public List selectadminAll() throws SQLException{
+	      SqlSession sqlSession = factory.openSession();
+	      List list = sqlSession.selectList("selectAdminAll");   //DataMapper의 id를 읽기
+	      sqlSession.close();
+	      return list;
+	   }
+	   
+	   //관리자정보 삽입
+	   public boolean insertAdmin(AdminDto dto){
+	      SqlSession sqlSession = factory.openSession();
+	      boolean b = false;
+	      try {
+	         int re = sqlSession.insert("insertAdmin", dto);
+	         if(re > 0) b = true;
+	         sqlSession.commit();
+	         
+	      } catch (Exception e) {
+	         sqlSession.rollback();
+	      }finally {
+	         if(sqlSession != null) sqlSession.close();
+	      }
+	         return b;   
+	   }
+	   
+	   //관리자정보 수정
+	   public boolean updateAdmin(AdminDto dto){
+	      SqlSession sqlSession = factory.openSession();
+	      boolean b = false;
+	      try {
+	         int cou = sqlSession.insert("updateAdmin", dto);
+	         if(cou > 0)  b = true;
+	         sqlSession.commit();
+	      } catch (Exception e) {
+	         sqlSession.rollback();
+	      }finally {
+	         if(sqlSession != null) sqlSession.close();   
+	      }
+	         return b;
+	   }
+	   
+	   //관리자정보 삭제
+	   public boolean deleteAdmin(String no){
+	      SqlSession sqlSession = factory.openSession();//자동
+	      
+	      boolean b = false;
+	      try {
+	    	 System.out.println(no);
+	         int cou = sqlSession.delete("deleteAdmin", no);
+	         System.out.println(cou);
+	         if(cou > 0){
+	    
+	        	 b = true;
+	         }
+	         sqlSession.commit();
+	      } catch (Exception e) {
+	         sqlSession.rollback();
+	      }finally {
+	         if(sqlSession != null) sqlSession.close();   
+	      }
+	      return b;
+	   }
+	   
+	
+	
+	
+	
 
 	// 우편번호 sql
 	public List zipcodeRead(String area3) {

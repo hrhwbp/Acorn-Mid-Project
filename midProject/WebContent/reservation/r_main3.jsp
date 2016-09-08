@@ -1,46 +1,23 @@
 <%@page import="projectpack.business.VehicleDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%request.setCharacterEncoding("utf-8"); %>
-    <%@ taglib prefix ="c" uri ="http://java.sun.com/jsp/jstl/core" %>
- 
-<jsp:useBean id="processDao" class = "projectpack.business.ProcessDao"/>
-<jsp:useBean id="vehicleDto" class = "projectpack.business.VehicleDto"/>
+	pageEncoding="UTF-8"%>
+<%	request.setCharacterEncoding("utf-8");%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<jsp:useBean id="processDao" class="projectpack.business.ProcessDao" />
+<jsp:useBean id="vehicleDto" class="projectpack.business.VehicleDto" />
 <!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>::::::RESERVATION::::::</title>
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons"	rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style type="text/css">
-
-div.reservation {
-    z-index: 2;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0);
-    /* margin-bottom: inherit; */
-}
-
-.slider .slides {
-    background-color: #9e9e9e;
-    margin: 0;
-    height: 140% !important;
-}
-
-footer.page-footer.black {
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
-	margin-top: 0px;
-}
-</style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../js/materialize.min.js"></script>
+<script type="text/javascript" src="../js/materialize.js"></script>
 <script type="text/javascript" src="../js/js.js"></script>
 <script type="text/javascript">
 
@@ -65,31 +42,32 @@ function selectcar(){
    /* alert(document.getElementById("v_brand").value); */
    location.href="r_main.jsp";   
 }  
-
-function func12() {
-	   if($("#car-sel option:selected").val() == 0){
-	      $('#re-err').openModal();
-	   }else if($("#out").val() == ""){
-	      $('#re-err').openModal();
-	   }else if($("#hour option:selected").val() == "시"){
-	      $('#re-err').openModal();
-	   }else if($("#min option:selected").val() == "분"){
-	      $('#re-err').openModal();
-	   }else if($("#in").val() == ""){
-	      $('#re-err').openModal();
-	   }else if($("#backhour option:selected").val() == "시"){
-	      $('#re-err').openModal();
-	   }else if($("#backmin option:selected").val() == "분"){
-	      $('#re-err').openModal();
-	   }else if($("#option1 option:selected").val() == "X"){
-	      $('#re-err').openModal();
-	   }else{
-	      frmcarsearch.submit()      
-	   }
-	}
-	
 </script>
+<style type="text/css">
 
+div.reservation {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    /* margin-bottom: inherit; */
+}
+
+.slider .slides {
+    background-color: #9e9e9e;
+    margin: 0;
+    height: 140% !important;
+}
+
+footer.page-footer.black {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	margin-top: 0px;
+}
+
+</style>
 </head>
 
 <body style="background-color: black;">
@@ -121,7 +99,7 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
       </div>
       <div class="col s7 ">
        <div class="input-field" id="v_name">
-          <select name="v_no" >
+          <select name="v_no">
       <option value="" disabled selected>차량을 선택해주세요</option>
             <%
             ArrayList<VehicleDto> listName =(ArrayList)processDao.selectVehiclebyBrand(v_brand);
@@ -228,19 +206,19 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
    </div>
   </form>
 </div>
-
 	<!------------------------ slider DIV ----------------------->
 	<div class="slider" style="height: 545px;">
 		<ul class="slides" style="height: 120%;">
-			<li><img src="../image/slider/lambor.jpg"></li>
-			<li><img src="../image/slider/ferrarigtb.jpg"></li>
+			<li><img src="../image/slider/amdb11.jpg"></li>
 			<li><img src="../image/slider/benzs63amg.jpg"></li>
 			<li><img src="../image/slider/bmwm6.jpg"></li>
-			<li><img src="../image/slider/amdb11.jpg"></li>
+			<li><img src="../image/slider/ferrarigtb.jpg"></li>
+			<li><img src="../image/slider/lambor.jpg"></li>
 		</ul>
 	</div>
 	<!---------------------- slider DIV끝 ------------------------>
-<%@include file="../reservation/r_modal.jsp" %>          
-<%@include file="../index/bottom_index.jsp" %>
+
+
+<%@include file="../index/bottom_index.jsp"%>
 </body>
 </html>

@@ -10,38 +10,6 @@
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"
 	media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="../js/js.js"></script>
-<script type="text/javascript">
-	function funclogout() {
-		location.href = "c_logout.jsp";
-	}
-	
-	function funcLoginMain(){
-		
-		if(loginFrm.c_id.value === ""){
-			$('#modal_check_id').openModal();			
-		}else if(loginFrm.c_pw.value === ""){
-			$('#modal_check_pw').openModal();			
-		}else{
-		      loginFrm.action = "../customer/c_loginproc.jsp";      
-		      loginFrm.method="post";
-		      loginFrm.submit();
-		}   
-	}
-	
-	function focusid(){
-		loginFrm.c_id.focus();
-	}
-	
-	function focuspw(){
-		loginFrm.c_pw.focus();
-	}
-	
-	
-</script>
 <style type="text/css">
 .cardshape{
     background: rgba(0,0,0,1);
@@ -94,6 +62,104 @@ footer.black {
     padding-top: 0px !important;
 }
 </style>
+
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/js.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	  var frm = $("form[name='registerFrm']");
+      var userid = frm.find("input[name='c_id']");
+      var passwd = frm.find("input[name='c_pw']");
+      var pwcheck = frm.find("input[name='c_pw_check']");
+     
+      var checkOk = false;
+
+	    $("#id_check").click(function(){	
+	    if(userid.val() == ""){
+	    	$('#idisNull').openModal();
+	    	return;
+	    }else{
+	    	$.ajax({
+	    		type:"POST",
+	    		url:"c_idcheck.jsp",
+	    		data:({
+	    			userID : userid.val()
+	    		}),
+	    		success:function (data){
+	    		
+	    			if(jQuery.trim(data) == 'YES'){
+	    				//alert("사용가능");
+	    				$('#idCheckOk').openModal();
+	    				checkOk = true;
+	    			}else{
+	    				$('#idCheckNo').openModal();
+	    				userid.focus();
+	    				checkOk = false;
+	    			}
+	    		}
+	    	});
+	    }
+      });
+		
+	    $("#btnOk").click(function(){
+	    	if(checkOk != true){
+	    		$('#noCheck').openModal();
+	    	}else if(passwd.val() == ""){
+	    		$('#passwdisNull').openModal();
+	    		$('#c_pw').focus();
+	    	}else if(pwcheck.val() == ""){
+	    		$('#passwdisNull').openModal();
+	    	}else if(passwd.val() != pwcheck.val()){
+	    		$('#pwcheck').openModal();
+	    	}else if($('#c_name').val()==""){
+	    		$('#notNull').openModal();
+	    	}else if($('#c_jumin_first').val()==""){
+	    		$('#notNull').openModal();
+	    	}else if($('#c_jumin_last').val()==""){
+	    		$('#notNull').openModal();
+	    	}else if($('#c_lic').val()==""){
+	    		$('#notNull').openModal();
+	    	}else if($('#c_lic2').val()==""){
+	    		$('#notNull').openModal();
+	    	}else if($('#c_tel').val()==""){
+	    		$('#notNull').openModal();
+	    	}else{
+	    		frm.submit();
+	    		$('#modal_register').closeModal();
+	    	}
+	    	
+	    });
+});
+
+	function funclogout() {
+		location.href = "c_logout.jsp";
+	}
+	
+	function funcLoginMain(){
+		
+		if(loginFrm.c_id.value === ""){
+			$('#modal_check_id').openModal();			
+		}else if(loginFrm.c_pw.value === ""){
+			$('#modal_check_pw').openModal();			
+		}else{
+		      loginFrm.action = "../customer/c_loginproc.jsp";      
+		      loginFrm.method="post";
+		      loginFrm.submit();
+		}   
+	}
+	
+	function focusid(){
+		loginFrm.c_id.focus();
+	}
+	
+	function focuspw(){
+		loginFrm.c_pw.focus();
+	}
+	
+	
+</script>
+
 </head>
 <body>
 	<%@ include file="../index/top_index.jsp"%>
@@ -131,7 +197,7 @@ footer.black {
         <div class="input-field col s12">
           <i class="material-icons prefix">vpn_key</i>
           <input type="password" id="c_pw" name="c_pw" class="validate">
-          <input type="hidden" name="urladdr" value="<%=urladdr%>">
+          <input placeholder="" type="hidden" name="urladdr">
           <label for="c_pw">PASSWORD</label>
         </div>
       </div>      
@@ -168,7 +234,8 @@ footer.black {
 	<%
 		}
 	%>
-
+	
+<%@include file="../reservation/r_modal.jsp"%>
 <%@ include file="../index/bottom_index.jsp"%>
 </body>
 </html>

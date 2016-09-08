@@ -21,6 +21,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="projectpack.business.CustomerDto">
 		select * from customer where c_id=#{c_id} and c_pw=#{c_pw}
  </select>
+ 
+ <select id="selectAdminAll" resultType="projectpack.business.AdminDto">
+  select * from admin order by a_no asc
+ </select>
+ 
+<insert id="insertAdmin" parameterType="projectpack.business.AdminDto">
+  insert into admin(a_no, a_id, a_pw) 
+  values(#{a_no},#{a_id},#{a_pw})
+ </insert>
+
+<update id="updateAdmin" parameterType="projectpack.business.AdminDto">
+  update admin set a_id=#{a_id}, a_pw=#{a_pw} where a_no=#{a_no}
+ </update>
+ 
+ <delete id="deleteAdmin" parameterType="string">
+  delete from admin where a_no=#{a_no}
+ </delete>
+ 
+ 
+ 
   
  <select id="selectCustomerAll" resultType="projectpack.business.CustomerDto">
   select * from customer order by c_no asc
@@ -35,8 +55,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
  
  <insert id="insertCustomer" parameterType="projectpack.business.CustomerDto">
-  insert into customer(c_name, c_jumin_first, c_jumin_last, c_addr, c_tel, c_lic, c_lic2, c_email, c_id, c_pw, c_que, c_ans) 
-  values(#{c_name},#{c_jumin_first},#{c_jumin_last},#{c_addr},#{c_tel}, #{c_lic}, #{c_lic2}, #{c_email}, #{c_id}, #{c_pw}, #{c_que}, #{c_ans})
+  insert into customer(c_name, c_jumin_first, c_jumin_last, c_tel, c_lic, c_lic2, c_email, c_id, c_pw) 
+  values(#{c_name},#{c_jumin_first},#{c_jumin_last},#{c_tel}, #{c_lic}, #{c_lic2}, #{c_email}, #{c_id}, #{c_pw})
  </insert>
  
  <update id="updateCustomer" parameterType="projectpack.business.CustomerDto">

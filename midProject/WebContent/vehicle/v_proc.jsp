@@ -20,7 +20,7 @@ if(flag.equals("insert")){
 }else if(flag.equals("update")){
 	b = processDao.updateVehicle(dto);
 }else if(flag.equals("delete")){
-			b = processDao.deleteVehicle(request.getParameter("v_no"));	
+			b = processDao.deleteVehicle(request.getParameter("v_deleteno"));	
 }else{
 	response.sendRedirect("../admin/a_vMgt.jsp");
 }

@@ -31,8 +31,12 @@ $(document).ready(function() {
 </head>
 <body>
 <%@ include file = "a_top.jsp" %>
-<table border = "1">
+<div class="container">
+<table class="responsive-table centered highlight bordered" style="width: 1200px; margin-right: 20%" >
+<thead>
    <tr><th>예약번호</th><th>차번호</th><th>차량명</th><th>출고일/입고일</th><th>고객번호</th><th>고객성함</th><th>예약메모</th><th>예약일시</th></tr>
+</thead>
+<tbody>
 <% 
 ArrayList<ReservationDto> list = (ArrayList)processDao.selectReservationAll();
 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
@@ -112,7 +116,9 @@ if(list == null){
 }
 %>
 </tr>
+</tbody>
 </table>
-
+</div>
+<%@ include file = "a_bottom.jsp" %>
 </body>
 </html>
