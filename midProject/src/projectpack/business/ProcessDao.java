@@ -53,7 +53,7 @@ public class ProcessDao {
 			if (sqlSession != null)
 				sqlSession.close();
 		}
-		//System.out.println("processDao에서 boolean이" + b);
+		// System.out.println("processDao에서 boolean이" + b);
 		return b;
 	}
 
@@ -564,4 +564,50 @@ public class ProcessDao {
 		}
 		return b;
 	}
+
+	// qna게시판 전체보기
+	public List selectQnaAll() throws SQLException {
+		SqlSession sqlSession = factory.openSession();
+		List list = sqlSession.selectList("selectQnaAll");
+		sqlSession.close();
+		return list;
+	}
+
+	public QnaDto selectByB_no(String arg) throws SQLException {
+
+		SqlSession sqlSession = factory.openSession();
+		QnaDto dto = sqlSession.selectOne("selectQnaById", arg);
+
+		sqlSession.close();
+		return dto;
+	}
+
+	public boolean selectQnaupdateyn(HashMap<String, String> map) throws SQLException {
+		boolean b = false;
+		SqlSession sqlSession = factory.openSession();
+		List list = sqlSession.selectList("selectQnaYn", map);
+		if (list != null) {
+			b = true;
+		}
+		return b;
+	}
+	
+	public boolean deleteQna(int arg) {
+	      SqlSession sqlSession = factory.openSession();// 자동
+	      boolean b = false;
+	      try {
+	         int cou = sqlSession.delete("deleteQna", arg);
+	         if (cou > 0)
+	            b = true;
+	         sqlSession.commit();
+	      } catch (Exception e) {
+	         sqlSession.rollback();
+	      } finally {
+	         if (sqlSession != null)
+	            sqlSession.close();
+	      }
+
+	      return b;
+	   }
+
 }

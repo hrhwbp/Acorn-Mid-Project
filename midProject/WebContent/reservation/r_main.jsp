@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>::RESERVATION::</title>
+<title>::::::RESERVATION::::::</title>
 
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -25,7 +25,8 @@
 	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../js/materialize.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+	$(document).ready(function() {		
+		
 		$('select').material_select();
 		$('.slider').slider({
 			full_width : false
@@ -95,7 +96,7 @@ footer.page-footer.black {
 		if (session.getAttribute("c_id") == null) {
 			/* System.out.println("로그인하세요");
 			System.out.println((String)request.getAttribute("c_id")); */
-			response.sendRedirect("../customer/c_login.jsp");
+			response.sendRedirect("../customer/c_login.jsp?urladdr=../r_main.jsp");
 
 		} else {
 	%>

@@ -7,11 +7,11 @@
  
 <jsp:useBean id="processDao" class = "projectpack.business.ProcessDao"/>
 <jsp:useBean id="vehicleDto" class = "projectpack.business.VehicleDto"/>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>예약하기</title>
+<title>::::::RESERVATION::::::</title>
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,8 +29,7 @@ $(document).ready(function() {
     $('#backhour > div > input').attr("name","bhour");
     $('#backmin > div > input').attr("name","bmin");
     $('#r_option > div > input').attr("name","r_option");
-    $('#r_opt > div > input').attr("name","r_opt");
-    
+    $('#r_opt > div > input').attr("name","r_opt");    
     
   });
 $('.datepicker').pickadate({
@@ -44,9 +43,34 @@ function selectcar(){
 }  
 
 </script>
+<style type="text/css">
+
+div.reservation {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    /* margin-bottom: inherit; */
+}
+
+.slider .slides {
+    background-color: #9e9e9e;
+    margin: 0;
+    height: 140% !important;
+}
+
+footer.page-footer.black {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	margin-top: 0px;
+}
+
+</style>
 </head>
-<body>
-<%@include file="../customer/c_top.jsp" %>
+<body style="background-color: black;">
+<%@include file="../index/top_index.jsp" %>
 <%
 String v_brand = (String)session.getAttribute("v_brand");
 
@@ -175,13 +199,22 @@ ArrayList<VehicleDto> list = (ArrayList)processDao.selectVehicleBrand();
    <div class="row">
    <div class="col s6 offset-s3 center-align ">
       <a class="waves-effect waves-light btn modal-trigger" href="#" onclick = "frmcarsearch.submit()"
-            style="margin-top: 15px; font-size: 10px">
-            조회
-            </a>
+            style="margin-top: 15px; font-size: 10px">예 약 가 능 조 회</a>
    </div>
    </div>
   </form>
 </div>
+	<!------------------------ slider DIV ----------------------->
+	<div class="slider" style="height: 545px;">
+		<ul class="slides" style="height: 120%;">
+			<li><img src="../image/slider/amdb11.jpg"></li>
+			<li><img src="../image/slider/benzs63amg.jpg"></li>
+			<li><img src="../image/slider/bmwm6.jpg"></li>
+			<li><img src="../image/slider/ferrarigtb.jpg"></li>
+			<li><img src="../image/slider/lambor.jpg"></li>
+		</ul>
+	</div>
+	<!---------------------- slider DIV끝 ------------------------>
           
 <%@include file="../customer/c_bottom.jsp" %>
 </body>

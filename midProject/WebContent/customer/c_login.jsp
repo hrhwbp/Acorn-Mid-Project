@@ -102,7 +102,7 @@ footer.black {
 		if (id != null) {
 			System.out.println(request.getHeader("referer"));
 	%>
-	<b><%=id%>님 환영</b>
+	<b><%=c_id%>님 환영</b>
 	<br>
 	<a href="../index.jsp">홈페이지</a>
 	<br>
@@ -111,6 +111,7 @@ footer.black {
 	<%
 		} else {
 			String urladdr = request.getHeader("referer");
+			System.out.println(urladdr);
 	%>
 	
 	<div class="container">
@@ -130,6 +131,7 @@ footer.black {
         <div class="input-field col s12">
           <i class="material-icons prefix">vpn_key</i>
           <input type="password" id="c_pw" name="c_pw" class="validate">
+          <input type="hidden" name="urladdr" value="<%=urladdr%>">
           <label for="c_pw">PASSWORD</label>
         </div>
       </div>      

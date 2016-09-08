@@ -180,4 +180,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  select r_no, v_brand, v_name, r_opt, r_total, r_date, c_name , i_name from reservation left outer join vehicle on r_vno = v_no left outer join customer on r_cno = c_no left outer join insurance on r_ins = i_no where c_id=#{c_id};
  </select>
  
+ <select id="selectQnaAll" resultType="projectpack.business.QnaDto">
+ select b_no, b_cno, b_title, b_content, b_date, b_ans, c_name, c_id, b_rcount from qna left outer join customer on b_cno = c_no order by b_no desc;
+ </select>
+ 
+  <select id="selectQnaById" parameterType="string" resultType="projectpack.business.QnaDto">
+ select b_no, b_cno, b_title, b_content, b_date, b_ans, c_name, b_rcount from qna left outer join customer on b_cno = c_no where c_no=#{c_no};
+ </select>
+ 
+ <select id = "selectQnaYn" parameterType="hashmap" resultType="projectpack.business.QnaDto">
+ select * from qna where r_cno = (select c_no from customer where c_name = #{c_name}) and r_cno = (select c_no from customer where c_id = #{c_id})
+ </select>
+ 
+ <delete id="deleteQna" parameterType="int">
+  delete from Qna where b_no=#{b_no}
+ </delete>
+ 
  </mapper>
