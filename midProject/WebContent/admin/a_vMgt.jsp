@@ -79,7 +79,7 @@ div.modal.v_nodelete,div.modal.modal_v_update {
 <body>
 	<%@ include file="a_top.jsp"%>
 	<div class="container">
-	** 차량 자료 **
+		<div><h4 style="text-align: center; font-weight: bold">차량 자료 목록</h4></div>
 	<p />
 
 				
@@ -90,15 +90,15 @@ div.modal.v_nodelete,div.modal.modal_v_update {
 				<table class="centered highlight bordered ">
 					<thead>
 						<tr>
-							<th>no</th>
-							<th>brand</th>
-							<th>name</th>
-							<th>price</th>
-							<th>type</th>
-							<th>count</th>
-							<th>avail</th>
-							<th>status</th>
-							<th>delete</th>
+							<th>차량번호</th>
+							<th>브랜드</th>
+							<th>차량명</th>
+							<th>가격</th>
+							<th>차량타입</th>
+							<th>렌트횟수</th>
+							<th>대여가능</th>
+							<th>차량상태</th>
+							<th>차량삭제</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -121,7 +121,13 @@ div.modal.v_nodelete,div.modal.modal_v_update {
 							<td><%=d.getV_price()%></td>
 							<td><%=d.getV_type()%></td>
 							<td><%=d.getV_count()%></td>
-							<td><%=d.getV_avail()%></td>
+							<% if(d.getV_avail().equals("0")){
+								out.println("<td>대여가능</td>");
+							}else if(d.getV_avail().equals("1")){
+								out.println("<td style='color: red; font-weight: bold;'>대여불가</td>");
+							}else{
+								out.println("<td style='color: blue;'>기    타</td>");
+							}%>
 							<td><%=d.getV_status()%></td>
 							<td>
 								<!-- 차량 삭제 버튼 -->
@@ -133,7 +139,7 @@ div.modal.v_nodelete,div.modal.modal_v_update {
 						<div><!--삭제 확인 모달 -->
 						<div id="v_nodelete<%=d.getV_no()%>" class="row modal modal-fixed-footer v_nodelete" style="height: 150px">
 						<form action="../vehicle/v_proc.jsp?flag=delete" id="v_deleteFrm" method="post">
-      							<h4>삭제하시겠습니까?</h4>
+      							<br><h4 style="text-align: center">삭제하시겠습니까?</h4>
    							<div class="modal-footer">
 								<a class="btn waves-effect waves-light red btn-floating modal-close">취소</a>
 								<button id="btnDelete" class="btn-floating btn waves-effect waves-light red" 
@@ -180,10 +186,8 @@ div.modal.v_nodelete,div.modal.modal_v_update {
 										<div class="input-field col s3 offset-s1 imsi30">
 											<input id="vprice" type="text" class="validate center-align" name="v_count" value=<%=d.getV_count()%>> 
 											<label for="vprice">차량 수</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="input-field col s5 offset-s3 imsi30">
+										</div>									
+										<div class="input-field col s3 offset-s1 imsi30">
 											<input id="vavail" type="text" class="validate center-align" name="v_avail" value=<%=d.getV_avail()%>> 
 											<label for="vavail">대여 가능여부</label>
 										</div>
