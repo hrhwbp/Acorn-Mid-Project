@@ -18,6 +18,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('.carousel').carousel();
+    $('.carousel').carousel('next',7);
 });
 
 function func(arg){

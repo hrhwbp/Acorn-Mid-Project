@@ -21,8 +21,7 @@
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"
 	media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../js/materialize.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -56,13 +55,30 @@
 		$("#out").val("");
 	}
 </script>
+<style type="text/css">
+
+footer.page-footer.black {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    margin-top: 0px;
+}
+
+div.reservation {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0);
+}
+</style>
 </head>
 
 <body style="background-color: black;">
 
 <%if(session.getAttribute("c_id") == null){ 
-System.out.println("로그인하세요");
-System.out.println((String)request.getAttribute("c_id"));
+/* System.out.println("로그인하세요");
+System.out.println((String)request.getAttribute("c_id")); */
 response.sendRedirect("../customer/c_login.jsp");
 
 }else{%>

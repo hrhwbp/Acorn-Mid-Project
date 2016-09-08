@@ -10,16 +10,16 @@
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"
    media="screen,projection" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript"
-   src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script>
+<!-- <script type="text/javascript"
+   src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+<!-- <script>
    $(document).ready(function() {
       $('.collapsible').collapsible({
          accordion : false      
       });
     $('ul.tabs').tabs('select_tab', 'support');
    });
-</script>
+</script> -->
 
 <style type="text/css">
    html,body { 
@@ -50,10 +50,8 @@
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-
 	background-color: silver;
 }
-
 .collapsible-body {
 	background-color: white;
 }

@@ -53,7 +53,7 @@ public class ProcessDao {
 			if (sqlSession != null)
 				sqlSession.close();
 		}
-		System.out.println("processDao에서 boolean이" + b);
+		//System.out.println("processDao에서 boolean이" + b);
 		return b;
 	}
 
