@@ -5,8 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+<title>::MEMBER LOGIN::</title>
 <script>
 
 //상단 메뉴 탭바를 통한 이동경로 및 액션 설정----------------------
@@ -54,29 +55,10 @@ function funcLogin(){
         <li class="tab col s2"><a class="" id="support" onclick="redirect(this);">SUPPORT</a></li>
       </ul>  
 <!-------------------------------------- 회원가입을 위한 모달 설정 ---------------------------------------->
-<!-- Modal 로그인용 -->
-<div class="container login">
-  <div class="row s12">
-  <div id="modal_login" class="modal col s4 offset-s3">
-  <form method="post" name="loginFrm">
-    <div class="modal-content center-align">
-      <h4>Login</h4>
-      <input placeholder="I D" type="text" name="c_id" class="center-align">
-      <input placeholder="Password" type="password" name="c_pw" class="center-align">
-      <p/>
-    </div>
-    <div class="modal-footer center-align">
-      <a href="#" onclick = "funcLogin()" class="modal-action">로그인</a>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a class="waves-effect waves-light modal-trigger" href="#modal_register">회원가입</a>
-    </div>
-  </form>
-  </div>
-  </div>
-  </div>
+
 
 <!--회원가입 모달-->
-   <div class="container register">
+  <!--  <div class="container register">
    <div id="modal_register" class="row modal">
        <form class="col s12 l12" action="c_insert.jsp" method="post" id="registerFrm" name="registerFrm">
           <div class="row">
@@ -184,6 +166,9 @@ function funcLogin(){
         </div>
     </form>
   </div>
- </div>
+ </div> -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/materialize.min.js"></script>
+ 
 </body>
 </html>

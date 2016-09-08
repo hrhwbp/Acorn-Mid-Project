@@ -9,6 +9,7 @@ request.setCharacterEncoding("utf-8");
 
 String c_id = request.getParameter("c_id");
 String c_pw = request.getParameter("c_pw");
+String urladdr = request.getParameter("urladdr");
 System.out.println("index의 c_login에 " + c_id + " " + c_pw + "받았습니다");
 
 HashMap<String, String> map = new HashMap<String,String>();
@@ -19,7 +20,7 @@ boolean b = processDao.c_login(map);
 
 if(b){
    session.setAttribute("c_id", c_id);   
-   response.sendRedirect("../index/index.jsp");
+   response.sendRedirect(urladdr);
 }else{   
    return;
    

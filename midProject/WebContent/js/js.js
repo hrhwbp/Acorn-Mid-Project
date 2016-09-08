@@ -13,14 +13,14 @@
 //로그인시 자료검색 및 정보 넘기 검사
 function funcLogin(){
    
-   if(loginFrm.id.value === ""){
+   if(loginFrm.c_id.value === ""){
       alert("id 입력해주세요");
       loginFrmid.focus();
-   }else if(loginFrm.pw.value === ""){
+   }else if(loginFrm.c_pw.value === ""){
       alert("비번 입력");
-      loginFrm.pw.focus();
+      loginFrm.c_pw.focus();
    }else{
-      loginFrm.action = "c_loginproc.jsp";      
+      loginFrm.action = "../customer/c_loginproc.jsp";      
       loginFrm.method="post";
       loginFrm.submit();
    }   

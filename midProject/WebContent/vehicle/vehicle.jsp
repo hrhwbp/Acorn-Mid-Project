@@ -61,7 +61,7 @@ footer.page-footer.black {
        </div>
        <div class="card-action">
             <span class="card-title activator grey-text text-darken-4">GranCabrio Sport<i class="material-icons right">more_vert</i></span>
-            <p><a href="#">예약하기</a></p>
+            <p><a href="../reservation/r_main.jsp">예약하기</a></p>
        </div>
        <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">Maserati<i class="material-icons right">close</i></span>
@@ -83,7 +83,7 @@ footer.page-footer.black {
        </div>
        <div class="card-action">
             <span class="card-title activator grey-text text-darken-4">Centenario Roadster<i class="material-icons right">more_vert</i></span>
-            <p><a href="#">예약하기</a></p>
+            <p><a href="../reservation/r_main.jsp">예약하기</a></p>
        </div>
        <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">Lamborghini<i class="material-icons right">close</i></span>
